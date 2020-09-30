@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Your suggestions friend</title>
+</head>
+<body>
+    <script src="movies.js"></script>
+    <script src="books.js"></script>
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+        <li><a data-toggle="tab" href="#movies">Movies</a></li>
+        <li><a data-toggle="tab" href="#songs">Songs</a></li>
+        <li><a data-toggle="tab" href="#books">Books</a></li>
+      </ul>
+
+      <div class="tab-content">
+
+        <div id="home" class="tab-pane fade in active">
+          <h3>Home</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+
+        <div id="movies" class="tab-pane fade">
+          <h3>Movies Suggestions Portal</h3>
+          <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <form id="movieform"> 
+            <label for="genre">Choose a genre</label>
+            <select name="genre" id="movieGenreSelect">
+              <option value = "Comedy">Comedy</option>
+              <option value = "Action">Action</option>
+              <option value = "Crime">Crime</option>
+              <option value = "Thriller">Thriller</option>
+              <option value = "Horror">Horror</option>
+              <option value = "Mystery">Mystery</option>
+              <option value = "Drama">Drama</option>
+              <option value = "Fantasy">Fantasy</option>
+              <option value = "War">War</option>
+              <option value = "Children">Children</option>
+              <option value = "Documentary">Documentary</option>
+              <option value = "Animation">Animation</option>
+              <option value = "Romance">Romance</option>
+              <option value = "Adventure">Adventure</option>
+              <option value = "Sci-Fi">Sci-Fi</option>
+              <option value = "Musical">Musical</option>
+            </select> <br>
+            <input type="submit" value="Submit">
+          </form>
+
+          <div id="movie-suggestion" class="hidden">
+            <h3 id = movie-name></h3>
+            <img id = "movie-img" src="" width="300" heigth = 500>
+            <p id="movie-rating"></p>
+            <p id="movie-ratingCount"></p>
+            <p id="movie-storyline"></p>
+            <p id="movie-length"></p>
+            <p id="movie-release"></p>
+          </div>
+        </div>
+
+        <div id="books" class="tab-pane fade">
+          <h3>Books suggestion portal</h3>
+          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+          <form id="bookform"> 
+            <label for="genre">Choose a genre</label>
+            <select name="genre" id="bookGenreSelect">
+              <option value = "signal_processing">Signal Processing</option>
+              <option value = "data_science">Data Science</option>
+              <option value = "mathematics">Mathematics</option>
+              <option value = "economics">Economics</option>
+              <option value = "history">History</option>
+              <option value = "science">Science</option>
+              <option value = "psychology">Psychology</option>
+              <option value = "fiction">Fiction</option>
+              <option value = "computer_science">Computer Science</option>
+              <option value = "nonfiction">Non Fiction</option>
+              <option value = "philosophy">Philosophy</option>
+            </select> <br>
+            <input type="submit" value="Submit">
+          </form>
+
+          <div id="book-suggestion" class="hidden">
+            <h3 id = book-name></h3>
+            <img id = "book-img" src="" width="300" heigth = 500>
+            <p id="book-authors"></p>
+            <p id="book-publisher"></p>
+            <p id="book-year"></p>
+            <p id="book-pages"></p>
+            <p id="book-language"></p>
+            <p id="book-size"></p>
+            <a id="book-download" target="_blank" href="">Download now</a>
+          </div>
+        </div>
+
+        <div id="songs" class="tab-pane fade">
+          <h3>Menu 3</h3>
+          <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+        </div>
+
+      </div>
+
+      <script>
+
+        $(document).ready(function(){
+          $("#movieform").submit(function(e){  // Movie form submit handler start
+            e.preventDefault();
+            let genre = document.getElementById('movieGenreSelect').value;
+            let movielist = moviedata[genre]
+            let movieobject = movielist[Math.floor(Math.random() * movielist.length)]
+            console.log("Received movie" , movieobject)
+            let movie = Object.keys(movieobject)[0]
+            console.log("Movie data" , movieobject)
+            console.log("Movie name" , movie)
+            let imdb = movieobject[movie]["rating"]
+            let storyline = movieobject[movie]["storyline"]
+            let thumbnail = movieobject[movie]["thumbnail"]
+            let length = movieobject[movie]["length"]
+            let release = movieobject[movie]["release"]
+            let ratingCount = movieobject[movie]["ratingCount"]
+
+            console.log(imdb , thumbnail , length , release , ratingCount)
+
+            $("#movie-suggestion").removeClass("hidden")
+            $("#movie-rating").html("IMDB Rating : " + imdb)
+            $("#movie-name").html("Movie Name : " + movie)
+            $("#movie-img").attr("src" , thumbnail)
+            $("#movie-storyline").html("Storyline : " + storyline)
+            $("#movie-release").html("Release Date : " + release)
+            $("#movie-ratingCount").html("Total IMDB Ratings: " + ratingCount)
+            $("#movie-length").html("Length : " + length)
+
+          }) // Movie form submit query end
+
+        
+          $("#bookform").submit(function(e){  // Book form submit handler start
+            e.preventDefault();
+            let genre = document.getElementById('bookGenreSelect').value;
+            let booklist = bookdata[genre]
+            let bookobject = booklist[Math.floor(Math.random() * booklist.length)]
+            let book = Object.keys(bookobject)[0]
+            
+            $("#book-suggestion").removeClass("hidden")
+            $("#book-authors").html("Authors : " + bookobject[book]['authors'])
+            $("#book-name").html("Book Name : " + book)
+            $("#book-img").attr("src" , bookobject[book]['image'])
+            $("#book-year").html("Year : " + bookobject[book]['year'])
+            $("#book-pages").html("Pages : " + bookobject[book]['pages'])
+            $("#book-language").html("Language: " + bookobject[book]['language'])
+            $("#book-size").html("Size : " + bookobject[book]['size'])
+            $("#book-download").attr("href" , bookobject[book]['download'])
+
+          }); //Book form submit handler end
+
+        }); //Main document ready query end
+
+      </script>
+</body>
+</html>

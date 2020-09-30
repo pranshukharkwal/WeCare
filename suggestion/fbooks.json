@@ -1,0 +1,1238 @@
+{
+  "signal_processing": [
+      {
+          "Fundamentals of Wavelets": {
+              "author": "Goswami, Jaideva",
+              "genre": "signal_processing"
+          }
+      },
+      {
+          "Image Processing & Mathematical Morphology": {
+              "author": "Shih, Frank",
+              "genre": "signal_processing"
+          }
+      },
+      {
+          "Image Processing with MATLAB": {
+              "author": "Eddins, Steve",
+              "genre": "signal_processing"
+          }
+      }
+  ],
+  "data_science": [
+      {
+          "Data Smart": {
+              "author": "Foreman, John",
+              "genre": "data_science"
+          }
+      },
+      {
+          "Nature of Statistical Learning Theory, The": {
+              "author": "Vapnik, Vladimir",
+              "genre": "data_science"
+          }
+      },
+      {
+          "Data Scientists at Work": {
+              "author": "Sebastian Gutierrez",
+              "genre": "data_science"
+          }
+      },
+      {
+          "Statistical Decision Theory'": {
+              "author": "Pratt, John",
+              "genre": "data_science"
+          }
+      },
+      {
+          "Data Mining Handbook": {
+              "author": "Nisbet, Robert",
+              "genre": "data_science"
+          }
+      },
+      {
+          "Machine Learning for Hackers": {
+              "author": "Conway, Drew",
+              "genre": "data_science"
+          }
+      },
+      {
+          "Signal and the Noise, The": {
+              "author": "Silver, Nate",
+              "genre": "data_science"
+          }
+      },
+      {
+          "Python for Data Analysis": {
+              "author": "McKinney, Wes",
+              "genre": "data_science"
+          }
+      },
+      {
+          "Soft Computing & Intelligent Systems": {
+              "author": "Gupta, Madan",
+              "genre": "data_science"
+          }
+      },
+      {
+          "Learning OpenCV": {
+              "author": "Bradsky, Gary",
+              "genre": "data_science"
+          }
+      },
+      {
+          "Computer Vision, A Modern Approach": {
+              "author": "Forsyth, David",
+              "genre": "data_science"
+          }
+      },
+      {
+          "Pattern Classification": {
+              "author": "Duda, Hart",
+              "genre": "data_science"
+          }
+      },
+      {
+          "Elements of Information Theory": {
+              "author": "Thomas, Joy",
+              "genre": "data_science"
+          }
+      },
+      {
+          "Neural Networks": {
+              "author": "Haykin, Simon",
+              "genre": "data_science"
+          }
+      },
+      {
+          "Statistical Learning Theory": {
+              "author": "Vapnik, Vladimir",
+              "genre": "data_science"
+          }
+      },
+      {
+          "Think Complexity": {
+              "author": "Downey, Allen",
+              "genre": "data_science"
+          }
+      },
+      {
+          "Data Analysis with Open Source Tools": {
+              "author": "Janert, Phillip",
+              "genre": "data_science"
+          }
+      }
+  ],
+  "mathematics": [
+      {
+          "God Created the Integers": {
+              "author": "Hawking, Stephen",
+              "genre": "mathematics"
+          }
+      },
+      {
+          "Birth of a Theorem": {
+              "author": "Villani, Cedric",
+              "genre": "mathematics"
+          }
+      },
+      {
+          "Analysis, Vol I": {
+              "author": "Tao, Terence",
+              "genre": "mathematics"
+          }
+      },
+      {
+          "Men of Mathematics": {
+              "author": "Bell, E T",
+              "genre": "mathematics"
+          }
+      },
+      {
+          "Structure and Randomness": {
+              "author": "Tao, Terence",
+              "genre": "mathematics"
+          }
+      }
+  ],
+  "economics": [
+      {
+          "Superfreakonomics": {
+              "author": "Dubner, Stephen",
+              "genre": "economics"
+          }
+      },
+      {
+          "Wealth of Nations, The": {
+              "author": "Smith, Adam",
+              "genre": "economics"
+          }
+      },
+      {
+          "Freakonomics": {
+              "author": "Dubner, Stephen",
+              "genre": "economics"
+          }
+      },
+      {
+          "Textbook of Economic Theory": {
+              "author": "Stonier, Alfred",
+              "genre": "economics"
+          }
+      },
+      {
+          "Econometric Analysis": {
+              "author": "Greene, W. H.",
+              "genre": "economics"
+          }
+      },
+      {
+          "Social Choice & Welfare, Vol 39 No. 1": {
+              "author": "Various",
+              "genre": "economics"
+          }
+      },
+      {
+          "New Markets & Other Essays": {
+              "author": "Drucker, Peter",
+              "genre": "economics"
+          }
+      },
+      {
+          "Age of Discontuinity, The": {
+              "author": "Drucker, Peter",
+              "genre": "economics"
+          }
+      },
+      {
+          "Rationality & Freedom": {
+              "author": "Sen, Amartya",
+              "genre": "economics"
+          }
+      },
+      {
+          "Journal of Economics, vol 106 No 3": {
+              "author": NaN,
+              "genre": "economics"
+          }
+      }
+  ],
+  "history": [
+      {
+          "Orientalism": {
+              "author": "Said, Edward",
+              "genre": "history"
+          }
+      },
+      {
+          "Integration of the Indian States": {
+              "author": "Menon, V P",
+              "genre": "history"
+          }
+      },
+      {
+          "Age of Wrath, The": {
+              "author": "Eraly, Abraham",
+              "genre": "history"
+          }
+      },
+      {
+          "All the President's Men": {
+              "author": "Woodward, Bob",
+              "genre": "history"
+          }
+      },
+      {
+          "Scoop!": {
+              "author": "Nayar, Kuldip",
+              "genre": "history"
+          }
+      },
+      {
+          "Last Mughal, The": {
+              "author": "Dalrymple, William",
+              "genre": "history"
+          }
+      },
+      {
+          "India from Midnight to Milennium": {
+              "author": "Tharoor, Shashi",
+              "genre": "history"
+          }
+      },
+      {
+          "World's Greatest Trials, The": {
+              "author": NaN,
+              "genre": "history"
+          }
+      },
+      {
+          "O Jerusalem!": {
+              "author": "Lapierre, Dominique",
+              "genre": "history"
+          }
+      },
+      {
+          "Freedom at Midnight": {
+              "author": "Lapierre, Dominique",
+              "genre": "history"
+          }
+      },
+      {
+          "Beyond the Three Seas": {
+              "author": "Dalrymple, William",
+              "genre": "history"
+          }
+      },
+      {
+          "Great War for Civilization, The": {
+              "author": "Fisk, Robert",
+              "genre": "history"
+          }
+      },
+      {
+          "Clash of Civilizations and Remaking of the World Order": {
+              "author": "Huntington, Samuel",
+              "genre": "history"
+          }
+      },
+      {
+          "Discovery of India, The": {
+              "author": "Nehru, Jawaharlal",
+              "genre": "history"
+          }
+      },
+      {
+          "Veil: Secret Wars of the CIA": {
+              "author": "Woodward, Bob",
+              "genre": "history"
+          }
+      },
+      {
+          "Short History of the World, A": {
+              "author": "Wells, H G",
+              "genre": "history"
+          }
+      },
+      {
+          "From Beirut to Jerusalem": {
+              "author": "Friedman, Thomas",
+              "genre": "history"
+          }
+      },
+      {
+          "Age of the Warrior, The": {
+              "author": "Fisk, Robert",
+              "genre": "history"
+          }
+      },
+      {
+          "Empire of the Mughal - The Tainted Throne": {
+              "author": "Rutherford, Alex",
+              "genre": "history"
+          }
+      },
+      {
+          "Empire of the Mughal - Brothers at War": {
+              "author": "Rutherford, Alex",
+              "genre": "history"
+          }
+      },
+      {
+          "Empire of the Mughal - Ruler of the World": {
+              "author": "Rutherford, Alex",
+              "genre": "history"
+          }
+      },
+      {
+          "Empire of the Mughal - The Serpent's Tooth": {
+              "author": "Rutherford, Alex",
+              "genre": "history"
+          }
+      },
+      {
+          "Empire of the Mughal - Raiders from the North": {
+              "author": "Rutherford, Alex",
+              "genre": "history"
+          }
+      },
+      {
+          "Mossad": {
+              "author": "Baz-Zohar, Michael",
+              "genre": "history"
+          }
+      },
+      {
+          "History of England, Foundation": {
+              "author": "Ackroyd, Peter",
+              "genre": "history"
+          }
+      },
+      {
+          "City of Djinns": {
+              "author": "Dalrymple, William",
+              "genre": "history"
+          }
+      }
+  ],
+  "science": [
+      {
+          "Drunkard's Walk, The": {
+              "author": "Mlodinow, Leonard",
+              "genre": "science"
+          }
+      },
+      {
+          "Physics & Philosophy": {
+              "author": "Heisenberg, Werner",
+              "genre": "science"
+          }
+      },
+      {
+          "Tao of Physics, The": {
+              "author": "Capra, Fritjof",
+              "genre": "science"
+          }
+      },
+      {
+          "Surely You're Joking Mr Feynman": {
+              "author": "Feynman, Richard",
+              "genre": "science"
+          }
+      },
+      {
+          "Hidden Connections, The": {
+              "author": "Capra, Fritjof",
+              "genre": "science"
+          }
+      },
+      {
+          "Theory of Everything, The": {
+              "author": "Hawking, Stephen",
+              "genre": "science"
+          }
+      },
+      {
+          "Electric Universe": {
+              "author": "Bodanis, David",
+              "genre": "science"
+          }
+      },
+      {
+          "Artist and the Mathematician, The": {
+              "author": "Aczel, Amir",
+              "genre": "science"
+          }
+      },
+      {
+          "Simpsons & Their Mathematical Secrets": {
+              "author": "Singh, Simon",
+              "genre": "science"
+          }
+      },
+      {
+          "Code Book, The": {
+              "author": "Singh, Simon",
+              "genre": "science"
+          }
+      },
+      {
+          "Numbers Behind Numb3rs, The": {
+              "author": "Devlin, Keith",
+              "genre": "science"
+          }
+      },
+      {
+          "Information, The": {
+              "author": "Gleick, James",
+              "genre": "science"
+          }
+      },
+      {
+          "Broca's Brain": {
+              "author": "Sagan, Carl",
+              "genre": "science"
+          }
+      },
+      {
+          "Oxford book of Modern Science Writing": {
+              "author": "Dawkins, Richard",
+              "genre": "science"
+          }
+      }
+  ],
+  "psychology": [
+      {
+          "How to Think Like Sherlock Holmes": {
+              "author": "Konnikova, Maria",
+              "genre": "psychology"
+          }
+      }
+  ],
+  "fiction": [
+      {
+          "Slaughterhouse Five": {
+              "author": "Vonnegut, Kurt",
+              "genre": "fiction"
+          }
+      },
+      {
+          "Trial, The": {
+              "author": "Kafka, Frank",
+              "genre": "fiction"
+          }
+      },
+      {
+          "New Machiavelli, The": {
+              "author": "Wells, H. G.",
+              "genre": "fiction"
+          }
+      },
+      {
+          "Outsider, The": {
+              "author": "Camus, Albert",
+              "genre": "fiction"
+          }
+      },
+      {
+          "Complete Sherlock Holmes, The - Vol I": {
+              "author": "Doyle, Arthur Conan",
+              "genre": "fiction"
+          }
+      },
+      {
+          "Complete Sherlock Holmes, The - Vol II": {
+              "author": "Doyle, Arthur Conan",
+              "genre": "fiction"
+          }
+      },
+      {
+          "Pillars of the Earth, The": {
+              "author": "Follett, Ken",
+              "genre": "fiction"
+          }
+      },
+      {
+          "Farewell to Arms, A": {
+              "author": "Hemingway, Ernest",
+              "genre": "fiction"
+          }
+      },
+      {
+          "Veteran, The": {
+              "author": "Forsyth, Frederick",
+              "genre": "fiction"
+          }
+      },
+      {
+          "False Impressions": {
+              "author": "Archer, Jeffery",
+              "genre": "fiction"
+          }
+      },
+      {
+          "Jurassic Park": {
+              "author": "Crichton, Michael",
+              "genre": "fiction"
+          }
+      },
+      {
+          "Tales of Mystery and Imagination": {
+              "author": "Poe, Edgar Allen",
+              "genre": "fiction"
+          }
+      },
+      {
+          "Asami Asami": {
+              "author": "Deshpande, P L",
+              "genre": "fiction"
+          }
+      },
+      {
+          "Journal of a Novel": {
+              "author": "Steinbeck, John",
+              "genre": "fiction"
+          }
+      },
+      {
+          "Moon is Down, The": {
+              "author": "Steinbeck, John",
+              "genre": "fiction"
+          }
+      },
+      {
+          "Brethren, The": {
+              "author": "Grisham, John",
+              "genre": "fiction"
+          }
+      },
+      {
+          "In a Free State": {
+              "author": "Naipaul, V. S.",
+              "genre": "fiction"
+          }
+      },
+      {
+          "Catch 22": {
+              "author": "Heller, Joseph",
+              "genre": "fiction"
+          }
+      },
+      {
+          "Amulet of Samarkand, The": {
+              "author": "Stroud, Jonathan",
+              "genre": "fiction"
+          }
+      },
+      {
+          "Crime and Punishment": {
+              "author": "Dostoevsky, Fyodor",
+              "genre": "fiction"
+          }
+      },
+      {
+          "Angels & Demons": {
+              "author": "Brown, Dan",
+              "genre": "fiction"
+          }
+      },
+      {
+          "Sea of Poppies": {
+              "author": "Ghosh, Amitav",
+              "genre": "fiction"
+          }
+      },
+      {
+          "Raisin in the Sun, A": {
+              "author": "Hansberry, Lorraine",
+              "genre": "fiction"
+          }
+      },
+      {
+          "Prisoner of Birth, A": {
+              "author": "Archer, Jeffery",
+              "genre": "fiction"
+          }
+      },
+      {
+          "Maqta-e-Ghalib": {
+              "author": "Garg, Sanjay",
+              "genre": "fiction"
+          }
+      },
+      {
+          "Great Indian Novel, The": {
+              "author": "Tharoor, Shashi",
+              "genre": "fiction"
+          }
+      },
+      {
+          "City of Joy, The": {
+              "author": "Lapierre, Dominique",
+              "genre": "fiction"
+          }
+      },
+      {
+          "Winter of Our Discontent, The": {
+              "author": "Steinbeck, John",
+              "genre": "fiction"
+          }
+      },
+      {
+          "Case of the Lame Canary, The": {
+              "author": "Gardner, Earle Stanley",
+              "genre": "fiction"
+          }
+      },
+      {
+          "Hunchback of Notre Dame, The": {
+              "author": "Hugo, Victor",
+              "genre": "fiction"
+          }
+      },
+      {
+          "Burning Bright": {
+              "author": "Steinbeck, John",
+              "genre": "fiction"
+          }
+      },
+      {
+          "Doctor in the Nude": {
+              "author": "Gordon, Richard",
+              "genre": "fiction"
+          }
+      },
+      {
+          "World's Greatest Short Stories, The": {
+              "author": NaN,
+              "genre": "fiction"
+          }
+      },
+      {
+          "Maugham's Collected Short Stories, Vol 3": {
+              "author": "Maugham, William S",
+              "genre": "fiction"
+          }
+      },
+      {
+          "Phantom of Manhattan, The": {
+              "author": "Forsyth, Frederick",
+              "genre": "fiction"
+          }
+      },
+      {
+          "Ashenden of The British Agent": {
+              "author": "Maugham, William S",
+              "genre": "fiction"
+          }
+      },
+      {
+          "We the Living": {
+              "author": "Rand, Ayn",
+              "genre": "fiction"
+          }
+      },
+      {
+          "Selected Short Stories": {
+              "author": NaN,
+              "genre": "fiction"
+          }
+      },
+      {
+          "To Sir With Love": {
+              "author": "Braithwaite",
+              "genre": "fiction"
+          }
+      },
+      {
+          "Half A Life": {
+              "author": "Naipaul, V S",
+              "genre": "fiction"
+          }
+      },
+      {
+          "Deceiver, The": {
+              "author": "Forsyth, Frederick",
+              "genre": "fiction"
+          }
+      },
+      {
+          "Rosy is My Relative": {
+              "author": "Durrell, Gerald",
+              "genre": "fiction"
+          }
+      },
+      {
+          "Moon and Sixpence, The": {
+              "author": "Maugham, William S",
+              "genre": "fiction"
+          }
+      },
+      {
+          "Trembling of a Leaf, The": {
+              "author": "Maugham, William S",
+              "genre": "fiction"
+          }
+      },
+      {
+          "Doctor on the Brain": {
+              "author": "Gordon, Richard",
+              "genre": "fiction"
+          }
+      },
+      {
+          "Grapes of Wrath, The": {
+              "author": "Steinbeck, John",
+              "genre": "fiction"
+          }
+      },
+      {
+          "20000 Leagues Under the Sea": {
+              "author": "Verne, Jules",
+              "genre": "fiction"
+          }
+      },
+      {
+          "Batatyachi Chal": {
+              "author": "Deshpande P L",
+              "genre": "fiction"
+          }
+      },
+      {
+          "Hafasavnuk": {
+              "author": "Deshpande P L",
+              "genre": "fiction"
+          }
+      },
+      {
+          "Urlasurla": {
+              "author": "Deshpande P L",
+              "genre": "fiction"
+          }
+      },
+      {
+          "Devil's Advocate, The": {
+              "author": "West, Morris",
+              "genre": "fiction"
+          }
+      },
+      {
+          "More Tears to Cry": {
+              "author": "Sassoon, Jean",
+              "genre": "fiction"
+          }
+      },
+      {
+          "Ropemaker, The": {
+              "author": "Dickinson, Peter",
+              "genre": "fiction"
+          }
+      },
+      {
+          "Angels & Demons": {
+              "author": "Brown, Dan",
+              "genre": "fiction"
+          }
+      },
+      {
+          "Judge, The": {
+              "author": NaN,
+              "genre": "fiction"
+          }
+      },
+      {
+          "Attorney, The": {
+              "author": NaN,
+              "genre": "fiction"
+          }
+      },
+      {
+          "Eyeless in Gaza": {
+              "author": "Huxley, Aldous",
+              "genre": "fiction"
+          }
+      },
+      {
+          "Tales of Beedle the Bard": {
+              "author": "Rowling, J K",
+              "genre": "fiction"
+          }
+      },
+      {
+          "Girl with the Dragon Tattoo": {
+              "author": "Larsson, Steig",
+              "genre": "fiction"
+          }
+      },
+      {
+          "Girl who kicked the Hornet's Nest": {
+              "author": "Larsson, Steig",
+              "genre": "fiction"
+          }
+      },
+      {
+          "Girl who played with Fire": {
+              "author": "Larsson, Steig",
+              "genre": "fiction"
+          }
+      },
+      {
+          "Animal Farm": {
+              "author": "Orwell, George",
+              "genre": "fiction"
+          }
+      },
+      {
+          "Idiot, The": {
+              "author": "Dostoevsky, Fyodor",
+              "genre": "fiction"
+          }
+      },
+      {
+          "Christmas Carol, A": {
+              "author": "Dickens, Charles",
+              "genre": "fiction"
+          }
+      }
+  ],
+  "computer_science": [
+      {
+          "Structure & Interpretation of Computer Programs": {
+              "author": "Sussman, Gerald",
+              "genre": "computer_science"
+          }
+      },
+      {
+          "Making Software": {
+              "author": "Oram, Andy",
+              "genre": "computer_science"
+          }
+      },
+      {
+          "Introduction to Algorithms": {
+              "author": "Cormen, Thomas",
+              "genre": "computer_science"
+          }
+      },
+      {
+          "Data Structures Using C & C++": {
+              "author": "Tanenbaum, Andrew",
+              "genre": "computer_science"
+          }
+      },
+      {
+          "Principles of Communication Systems": {
+              "author": "Taub, Schilling",
+              "genre": "computer_science"
+          }
+      },
+      {
+          "Let Us C": {
+              "author": "Kanetkar, Yashwant",
+              "genre": "computer_science"
+          }
+      },
+      {
+          "Power Electronics - Rashid": {
+              "author": "Rashid, Muhammad",
+              "genre": "computer_science"
+          }
+      },
+      {
+          "Power Electronics - Mohan": {
+              "author": "Mohan, Ned",
+              "genre": "computer_science"
+          }
+      },
+      {
+          "Pointers in C": {
+              "author": "Kanetkar, Yashwant",
+              "genre": "computer_science"
+          }
+      },
+      {
+          "Cathedral and the Bazaar, The": {
+              "author": "Raymond, Eric",
+              "genre": "computer_science"
+          }
+      },
+      {
+          "Design with OpAmps": {
+              "author": "Franco, Sergio",
+              "genre": "computer_science"
+          }
+      }
+  ],
+  "nonfiction": [
+      {
+          "Beautiful and the Damned, The": {
+              "author": "Deb, Siddhartha",
+              "genre": "nonfiction"
+          }
+      },
+      {
+          "Mein Kampf": {
+              "author": "Hitler, Adolf",
+              "genre": "nonfiction"
+          }
+      },
+      {
+          "Last Lecture, The": {
+              "author": "Pausch, Randy",
+              "genre": "nonfiction"
+          }
+      },
+      {
+          "Russian Journal, A": {
+              "author": "Steinbeck, John",
+              "genre": "nonfiction"
+          }
+      },
+      {
+          "Once There Was a War": {
+              "author": "Steinbeck, John",
+              "genre": "nonfiction"
+          }
+      },
+      {
+          "Complete Mastermind, The": {
+              "author": "BBC",
+              "genre": "nonfiction"
+          }
+      },
+      {
+          "Dylan on Dylan": {
+              "author": "Dylan, Bob",
+              "genre": "nonfiction"
+          }
+      },
+      {
+          "Argumentative Indian, The": {
+              "author": "Sen, Amartya",
+              "genre": "nonfiction"
+          }
+      },
+      {
+          "Idea of Justice, The": {
+              "author": "Sen, Amartya",
+              "genre": "nonfiction"
+          }
+      },
+      {
+          "Ahe Manohar Tari": {
+              "author": "Deshpande, Sunita",
+              "genre": "nonfiction"
+          }
+      },
+      {
+          "Radiowaril Bhashane & Shrutika": {
+              "author": "Deshpande, P L",
+              "genre": "nonfiction"
+          }
+      },
+      {
+          "Gun Gayin Awadi": {
+              "author": "Deshpande, P L",
+              "genre": "nonfiction"
+          }
+      },
+      {
+          "Aghal Paghal": {
+              "author": "Deshpande, P L",
+              "genre": "nonfiction"
+          }
+      },
+      {
+          "Beyond Degrees": {
+              "author": NaN,
+              "genre": "nonfiction"
+          }
+      },
+      {
+          "Manasa": {
+              "author": "Kale, V P",
+              "genre": "nonfiction"
+          }
+      },
+      {
+          "Bookless in Baghdad": {
+              "author": "Tharoor, Shashi",
+              "genre": "nonfiction"
+          }
+      },
+      {
+          "Down and Out in Paris & London": {
+              "author": "Orwell, George",
+              "genre": "nonfiction"
+          }
+      },
+      {
+          "Talking Straight": {
+              "author": "Iacoca, Lee",
+              "genre": "nonfiction"
+          }
+      },
+      {
+          "Uncommon Wisdom": {
+              "author": "Capra, Fritjof",
+              "genre": "nonfiction"
+          }
+      },
+      {
+          "One": {
+              "author": "Bach, Richard",
+              "genre": "nonfiction"
+          }
+      },
+      {
+          "Karl Marx Biography": {
+              "author": NaN,
+              "genre": "nonfiction"
+          }
+      },
+      {
+          "Apulki": {
+              "author": "Deshpande, P L",
+              "genre": "nonfiction"
+          }
+      },
+      {
+          "Char Shabda": {
+              "author": "Deshpande, P L",
+              "genre": "nonfiction"
+          }
+      },
+      {
+          "Life in Letters, A": {
+              "author": "Steinbeck, John",
+              "genre": "nonfiction"
+          }
+      },
+      {
+          "Vyakti ani Valli": {
+              "author": "Deshpande, P L",
+              "genre": "nonfiction"
+          }
+      },
+      {
+          "Jim Corbett Omnibus": {
+              "author": "Corbett, Jim",
+              "genre": "nonfiction"
+          }
+      },
+      {
+          "Courtroom Genius, The": {
+              "author": "Sorabjee",
+              "genre": "nonfiction"
+          }
+      },
+      {
+          "Dongri to Dubai": {
+              "author": "Zaidi, Hussain",
+              "genre": "nonfiction"
+          }
+      },
+      {
+          "India's Legal System": {
+              "author": "Nariman",
+              "genre": "nonfiction"
+          }
+      },
+      {
+          "Murphy's Law": {
+              "author": NaN,
+              "genre": "nonfiction"
+          }
+      }
+  ],
+  "philosophy": [
+      {
+          "Return of the Primitive": {
+              "author": "Rand, Ayn",
+              "genre": "philosophy"
+          }
+      },
+      {
+          "Story of Philosophy, The": {
+              "author": "Durant, Will",
+              "genre": "philosophy"
+          }
+      },
+      {
+          "On Education": {
+              "author": "Russell, Bertrand",
+              "genre": "philosophy"
+          }
+      },
+      {
+          "Free Will": {
+              "author": "Harris, Sam",
+              "genre": "philosophy"
+          }
+      },
+      {
+          "Identity & Violence": {
+              "author": "Sen, Amartya",
+              "genre": "philosophy"
+          }
+      },
+      {
+          "Zen & The Art of Motorcycle Maintenance": {
+              "author": "Pirsig, Robert",
+              "genre": "philosophy"
+          }
+      },
+      {
+          "History of Western Philosophy": {
+              "author": "Russell, Bertrand",
+              "genre": "philosophy"
+          }
+      },
+      {
+          "Unpopular Essays": {
+              "author": "Russell, Bertrand",
+              "genre": "philosophy"
+          }
+      },
+      {
+          "Political Philosophers": {
+              "author": NaN,
+              "genre": "philosophy"
+          }
+      },
+      {
+          "Ayn Rand Answers": {
+              "author": "Rand, Ayn",
+              "genre": "philosophy"
+          }
+      },
+      {
+          "Philosophy: Who Needs It": {
+              "author": "Rand, Ayn",
+              "genre": "philosophy"
+          }
+      },
+      {
+          "World's Great Thinkers, The": {
+              "author": NaN,
+              "genre": "philosophy"
+          }
+      },
+      {
+          "Justice, Judiciary and Democracy": {
+              "author": "Ranjan, Sudhanshu",
+              "genre": "philosophy"
+          }
+      },
+      {
+          "Arthashastra, The": {
+              "author": "Kautiyla",
+              "genre": "philosophy"
+          }
+      },
+      {
+          "We the People": {
+              "author": "Palkhivala",
+              "genre": "philosophy"
+          }
+      },
+      {
+          "We the Nation": {
+              "author": "Palkhivala",
+              "genre": "philosophy"
+          }
+      },
+      {
+          "Prince, The": {
+              "author": "Machiavelli",
+              "genre": "philosophy"
+          }
+      }
+  ],
+  "comic": [
+      {
+          "Final Crisis": {
+              "author": NaN,
+              "genre": "comic"
+          }
+      },
+      {
+          "Killing Joke, The": {
+              "author": NaN,
+              "genre": "comic"
+          }
+      },
+      {
+          "Flashpoint": {
+              "author": NaN,
+              "genre": "comic"
+          }
+      },
+      {
+          "Batman Earth One": {
+              "author": NaN,
+              "genre": "comic"
+          }
+      }
+  ]
+}
