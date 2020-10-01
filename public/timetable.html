@@ -3,7 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Time Table</title>
+      <!-- include only the Firebase features as you need -->
+  <script defer src="https://www.gstatic.com/firebasejs/7.21.1/firebase-firestore.js"></script>
+  
+
+  <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-firestore.js"></script>
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/7.21.1/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/7.21.1/firebase-auth.js"></script>
+    <script defer src="/__/firebase/7.21.1/firebase-database.js"></script>
+    <script defer src="/__/firebase/7.21.1/firebase-firestore.js"></script>
+    <script defer src="/__/firebase/7.21.1/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/7.21.1/firebase-storage.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
     <link rel="stylesheet" href="/timetable.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css"
     integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
@@ -211,10 +228,11 @@
             </li>
         </ul> -->
     </div>
-</div>
-<div show><input type="text" style="display: none;" id="inputwala">
-<button type="submit" id = 'sub' style="background-color: black; display: none;">Submit</button></div>
 
+<div show><input type="text" style="display: none;" placeholder="Write here" id="inputwala">
+    <br>
+<button type="submit" id = 'sub' style="background-color: black; display: none;">Submit</button></div>
+</div>
 <script>
     
 
@@ -230,6 +248,17 @@ const yolo = document.querySelector('[yolo]')
 const lol = document.querySelector('[lol]')
 const show = document.querySelector('[show]')
 
+document.addEventListener('DOMContentLoaded',async function(){
+    var db = firebase.firestore();
+      console.log('DB initialised');
+
+      for(var k=0; k<60; k++){
+          var vella = db.collection("timeTable").doc("table")
+          var doc= await vella.get()
+          var p= doc.data().time[k]
+          cells[k].innerText = p
+      }
+})
 
 // const shuffle = (array) => {
 //     let a = [...array]
@@ -275,7 +304,16 @@ yum.onclick = function(){
         yum.style.display = 'none'
         // console.log(inputwala.value)
         cells[dib].innerText = inputwala.value
+        var db = firebase.firestore();
+      console.log('DB initialised');
+
+      db.collection("timeTable").doc("table").update({
+        [`time.${dib}`]: inputwala.value
+      })
+
+
         inputwala.value=''
+
 }    
 }
 }
