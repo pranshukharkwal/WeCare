@@ -150,93 +150,17 @@
         <br>
         <br>
 
-        <!-- <ul class="activities row" data-activities style="margin: auto;">
-            <li>
-                <div class="activity" style="--bg: #adff8a; --r: -2deg"><span class="click">Baking</span></div>
-            </li>
-            <li>
-                <div class="activity" style="--r: -4deg">Painting</div>
-            </li>
-            <li>
-                <div class="activity" style="--bg: #ff8af5; --r: 2.5deg">Painting</div>
-            </li>
-            <li>
-                <div class="activity" style="--bg: #adff8a; --r: 1.25deg">Treasure hunt</div>
-            </li>
-            <li>
-                <div class="activity" style="--bg: #ff8af5; --r: -2deg">Cutting and sticking</div>
-            </li>
-            <li>
-                <div class="activity" style="--bg: #adff8a; --r: 2.5deg">Cutting and sticking</div>
-            </li>
-            <li>
-                <div class="activity" style="--r: -4deg">Drawing/writing practice</div>
-            </li>
-            <li>
-                <div class="activity" style="--bg: #ff8af5; --r: 1.25deg">Drawing/writing practice</div>
-            </li>
-            <li>
-                <div class="activity" style="--bg: #adff8a; --r: -2deg">Indoor games</div>
-            </li>
-            <li>
-                <div class="activity" style="--bg: #ff8af5; --r: 2.5deg">Board games/puzzles</div>
-            </li>
-            <li>
-                <div class="activity" style="--bg: #adff8a; --r: -4deg">Nature walk</div>
-            </li>
-            <li>
-                <div class="activity" style="--r: 1.25deg">Outdoor games</div>
-            </li>
-            <li>
-                <div class="activity" style="--r: -4deg">Building blocks/Lego</div>
-            </li>
-            <li>
-                <div class="activity" style="--bg: #adff8a; --r: 2.5deg">Play-doh</div>
-            </li>
-            <li>
-                <div class="activity" style="--r: -2deg">Stickers</div>
-            </li>
-            <li>
-                <div class="activity" style="--bg: #ff8af5; --r: 1.25deg">Making/crafting</div>
-            </li>
-            <li>
-                <div class="activity" style="--bg: #adff8a; --r: -4deg">Shopping</div>
-            </li>
-            <li>
-                <div class="activity" style="--bg: #ff8af5; --r: -2deg">Monster truck race course</div>
-            </li>
-            <li>
-                <div class="activity" style="--bg: #adff8a; --r: -4deg">Running</div>
-            </li>
-            <li>
-                <div class="activity" style="--r: 1.25deg">Running</div>
-            </li>
-            <li>
-                <div class="activity" style="--r: -2deg">Reading</div>
-            </li>
-            <li>
-                <div class="activity" style="--bg: #ff8af5; --r: -4deg">Family Facetime</div>
-            </li>
-            <li>
-                <div class="activity" style="--r: 2.5deg">Gardening</div>
-            </li>
-            <li>
-                <div class="activity" style="--bg: #adff8a; --r: 1.25deg">Cars</div>
-            </li>
-            <li>
-                <div class="activity" style="--bg: #ff8af5;   --r: 2.5deg">Chalks</div>
-            </li>
-        </ul> -->
+        
     </div>
 
 <div show><input type="text" style="display: none;" placeholder="Write here" id="inputwala">
     <br>
 <button type="submit" id = 'sub' style="background-color: black; display: none;">Submit</button></div>
 </div>
+
 <script>
     
 
-// const listEl = document.querySelector('[data-activities]')
 const activities = [...document.querySelectorAll('[data-activities] li')]
 const cells = [...document.querySelectorAll('[data-cell]')]
 const btn = document.querySelector('[data-btn]')
@@ -260,49 +184,21 @@ document.addEventListener('DOMContentLoaded',async function(){
       }
 })
 
-// const shuffle = (array) => {
-//     let a = [...array]
-    
-//     for (let i = a.length - 1; i > 0; i--) {
-//         const j = Math.floor(Math.random() * (i + 1));
-//         [a[i], a[j]] = [a[j], a[i]];
-//     }
-    
-//     return a
-// }
+
 
 for(var j=0; j<60; j++){
     cells[j].onclick = function(){
         var dib = this.id
         console.log(dib)
-        // listEl.style.display = 'none'
         yolo.style.display = 'none'
-        // lol.style.display = 'none'
         inputwala.style.display = 'block'
         yum.style.display = 'block'
-        
-
-
-
-// cells[0].onclick = function(){
-//     console.log("Hello")
-//         listEl.style.display = 'none'
-//         yolo.style.display = 'none'
-//         lol.style.display = 'none'
-//         inputwala.style.display = 'block'
-//         yum.style.display = 'block'
-
-    
-// }
 
 yum.onclick = function(){
     console.log("Hello")
-        // listEl.style.display = 'grid'
         yolo.style.display = 'block'
-        // lol.style.display = 'block'
         inputwala.style.display = 'none'
         yum.style.display = 'none'
-        // console.log(inputwala.value)
         cells[dib].innerText = inputwala.value
         var db = firebase.firestore();
       console.log('DB initialised');
@@ -323,7 +219,6 @@ const clearTimetable = () => {
         el.innerHTML = ''
     })
     
-    // listEl.style.display = 'grid'
 }
 
 const sortActivities = () => {
@@ -336,8 +231,6 @@ const sortActivities = () => {
             el.innerHTML = `${activitiesList[i].innerHTML}`
         }
     })
-    
-    // listEl.style.display = 'none'
 }
 
 
