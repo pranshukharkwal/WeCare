@@ -9,29 +9,29 @@ socketio = SocketIO(app, manage_session=False)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    """Login form to enter a room."""
-    if request.method == 'POST':
-        session['name'] = request.form['name']
-        session['room'] = request.form['room']
-        return redirect(url_for('.chat'))
-    else:
-        return render_template('index.html')
+    return render_template('index.html')
 
 
 @app.route('/yoga', methods=['GET'])
 def yoga_page():
     return render_template('yoga.html')
 
-
-@app.route('/chat')
+@app.route('/chat', methods=['GET', 'POST'])
 def chat():
-    """Chat room. The user's name and room must be stored in
-    the session."""
+    if request.method == 'POST':
+        session['name'] = request.form['name']
+        session['room'] = request.form['room']
+        return redirect(url_for('.chatroom'))
+    else:
+        return render_template('chat.html')
+
+@app.route('/chatroom')
+def chatroom():
     name = session.get('name', '')
     room = session.get('room', '')
     if name == '' or room == '':
-        return redirect(url_for('.index'))
-    return render_template('chat.html', name=name, room=room)
+        return redirect(url_for('.chat'))
+    return render_template('chatroom.html', name=name, room=room)
 
 
 @app.route('/suggestions')
