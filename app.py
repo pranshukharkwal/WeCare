@@ -31,6 +31,10 @@ def chat():
 def suggestions():
   return render_template('suggestion.html')
 
+@app.route('/medication')
+def medication():
+    return render_template('medication.html')
+
 
 @socketio.on('joined', namespace='/chat')
 def joined(message):
