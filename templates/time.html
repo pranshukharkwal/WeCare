@@ -90,11 +90,13 @@
 
 <div id="login-container" style="display: flex; padding: 32px 0;">
   <div style="margin: 12px auto;">
-    <div class="card text-center" style="width: 18rem;">
+    <div class="card text-center" style="width: 100%; max-width: 600px;">
       <div class="card-body">
-        <h5 class="card-title">Time Management Login</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
+        <h3 class="card-title">Time Management Login</h3>
+        <p class="card-text">
+          Some quick example text to build on the card title and make up the bulk of the card's
+          content.
+        </p>
         <button id="sign-in-google" class="btn btn-outline-dark" href="/users/googleauth" role="button"
           style="text-transform:none">
           <img width="20px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in"
@@ -108,7 +110,37 @@
 
 <script>
 
-  signInToBackend = () => {
+  document.getElementById('sign-in-google').onclick = function () {
+    var provider = new firebase.auth.GoogleAuthProvider();
+
+    firebase.auth().signInWithPopup(provider).then(function(result) {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      var token = result.credential.accessToken;
+      // The signed-in user info.
+      var user = result.user;
+      console.log(user);
+      console.log("The sing in google");
+
+      signInToBackend(user.email)
+      // ...
+    }).catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // The email of the user's account used.
+      var email = error.email;
+      // The firebase.auth.AuthCredential type that was used.
+      var credential = error.credential;
+      // ...
+    });
+  }
+
+  function emailToKey(email) {
+    var str = email.toString();
+    return str.replace("@", "__").replace(".", "_")
+  }
+
+  signInToBackend = (userEmail) => {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
@@ -116,9 +148,13 @@
         location.reload()
       }
     };
+
+    console.log("Making request");
+
+    var userKey = emailToKey(userEmail);
     xhttp.open("POST", "/time", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send("userKey=Priyam");
+    xhttp.send("userKey="+userKey);
   }
 
 </script>
