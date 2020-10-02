@@ -31,6 +31,18 @@ def chat():
 def suggestions():
   return render_template('suggestion.html')
 
+@app.route('/shortgoals')
+def sg():
+    return render_template('shortgoals.html')
+
+@app.route('/longoals')
+def lg():
+    return render_template('longgoals.html')
+
+@app.route('/timetable')
+def tt():
+    return render_template('timetable.html')
+
 
 @socketio.on('joined', namespace='/chat')
 def joined(message):
