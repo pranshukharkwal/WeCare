@@ -1,28 +1,47 @@
-<html>
-    <head>
-        <title>WeCare-Chat</title>
-    </head>
-    <body>
-        <h1>WeCare-Chat</h1>
-        <form method="POST">
-            <label for="name">Name</label>: <input id="name" name="name" required type="text" value=""> <br>
-            <label for="room">Room</label>: <select name="room" id="room">
-                <option value="Movies">Movies</option>
-                <option value="Gaming">Gaming</option>
-                <option value="Books">Books</option>
-                <option value="Healthcare">Healthcare</option>
-                <option value="Fitness">Fitness</option>
-                <option value="Casual">Casual</option>
-              </select> <br>
-              <input id="submit" name="submit" type="submit" value="Enter Chatroom">
-        </form>
+<!DOCTYPE html>
+<html lang="en">
 
-        <div style="background: linear-gradient(transparent 60%,#081118),linear-gradient(114deg,#8679f9,#71ff97); background-size: 2000px 1500px; background-repeat: no-repeat;">
-            <div class="container row" style="margin: auto; margin-top: 20vh;">
-              <a href="/longgoals" class="col center" style="padding-block: 75px;border-radius: 25px; background-color: greenyellow; margin-right: 20px;text-align: center;"><h1>Long Term Goals</h1></a>
-              <a href="/shortgoals" class="col center" style="padding-block: 75px;border-radius: 25px; background-color: skyblue; margin-right: 20px;text-align: center;"><h1> Short Term Goals</h1></a>
-              <a href="/timetable" class="col center" style="padding-block: 75px; border-radius: 25px;background-color:pink;text-align: center;"><h1>Time Table</h1></a>
-            </div>
-        </div>
-    </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | WeCare</title>
+</head>
+
+<body>
+
+
+  <h1>WeCare-Chat</h1>
+  <form method="POST">
+    <label for="name">Name</label>: <input id="name" name="name" required type="text" value=""> <br>
+    <label for="room">Room</label>: <select name="room" id="room">
+      <option value="Movies">Movies</option>
+      <option value="Gaming">Gaming</option>
+      <option value="Books">Books</option>
+      <option value="Healthcare">Healthcare</option>
+      <option value="Fitness">Fitness</option>
+      <option value="Casual">Casual</option>
+    </select> <br>
+    <input id="submit" name="submit" type="submit" value="Enter Chatroom">
+  </form>
+
+  <div
+    style="background: linear-gradient(transparent 60%,#081118),linear-gradient(114deg,#8679f9,#71ff97); background-size: 2000px 1500px; background-repeat: no-repeat;">
+    <div class="container row" style="margin: auto; margin-top: 20vh;">
+      <a href="/longgoals" class="col center"
+        style="padding-block: 75px;border-radius: 25px; background-color: greenyellow; margin-right: 20px;text-align: center;">
+        <h1>Long Term Goals</h1>
+      </a>
+      <a href="/shortgoals" class="col center"
+        style="padding-block: 75px;border-radius: 25px; background-color: skyblue; margin-right: 20px;text-align: center;">
+        <h1> Short Term Goals</h1>
+      </a>
+      <a href="/timetable" class="col center"
+        style="padding-block: 75px; border-radius: 25px;background-color:pink;text-align: center;">
+        <h1>Time Table</h1>
+      </a>
+    </div>
+  </div>
+
+</body>
+
 </html>
