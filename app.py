@@ -38,6 +38,10 @@ def chatroom():
 def suggestions():
     return render_template('suggestion.html')
 
+@app.route('/time')
+def time():
+    return render_template('time.html')
+
 @app.route('/medication')
 def medication():
     return render_template('medication.html')
