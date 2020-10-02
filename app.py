@@ -1,5 +1,6 @@
 from flask import Flask, render_template, jsonify, request, redirect, url_for, session
 from flask_socketio import SocketIO, join_room, leave_room, emit
+import random
 
 # ----------------- app configurations -----------------
 app = Flask(__name__)
@@ -9,12 +10,14 @@ socketio = SocketIO(app, manage_session=False)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    return render_template('index.html')
+    r = random.randint(1, 20)
+    return render_template('index.html', number=r)
 
 
 @app.route('/yoga', methods=['GET'])
 def yoga_page():
     return render_template('yoga.html')
+
 
 @app.route('/chat', methods=['GET', 'POST'])
 def chat():
@@ -24,6 +27,7 @@ def chat():
         return redirect(url_for('.chatroom'))
     else:
         return render_template('chat.html')
+
 
 @app.route('/chatroom')
 def chatroom():
@@ -38,9 +42,11 @@ def chatroom():
 def suggestions():
     return render_template('suggestion.html')
 
+
 @app.route('/time')
 def time():
     return render_template('time.html')
+
 
 @app.route('/medication')
 def medication():
@@ -53,6 +59,7 @@ def medication():
 # @app.route('/longgoals')
 # def lg():
 #     return render_template('longgoals.html')
+
 
 @app.route('/timetable')
 def tt():
