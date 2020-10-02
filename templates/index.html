@@ -5,9 +5,112 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
   integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+<style>
+  section {
+    padding: 48px 32px;
+  }
+
+  .section-title {
+    padding: 4px;
+  }
+
+  #pros {
+    background: #f0f0f0;
+  }
+
+  #pros .card {
+    width: 100%;
+    margin: auto;
+    margin: 12px;
+    height: 100%;
+  }
+
+  .card-img-top {
+    width: 80%;
+    margin: 12px auto;
+  }
+</style>
+
 {% endblock %}
 
 {% block body %}
+
+<div id="main">
+
+  <section id="pros">
+
+    <h2 class="text-center section-title">Our Products</h2>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="card">
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+              <div style="text-align: center;">
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-3">
+          <div class="card">
+            <img class="card-img-top" src="/static/img/time-management-removebg-preview.png" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+              <div style="text-align: center;">
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-3">
+          <div class="card">
+            <img class="card-img-top" src="/static/img/chat-svgrepo-com.svg" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Group Chat</h5>
+              <p class="card-text">
+                Getting bored at Home?
+                <br> Connect with people and have fun.
+              </p>
+              <div style="text-align: center;">
+                <a href="/yoga" class="btn btn-info">Do Yoga</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-3">
+          <div class="card">
+            <img class="card-img-top" src="/static/img/yoga-svgrepo-com.svg" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Yoga Tutorials</h5>
+              <p class="card-text">
+                Got tired with your daily schedule?
+                <br> Checkout our daily Yoga tutorials to help you stay fit!
+              </p>
+              <div style="text-align: center;">
+                <a href="/yoga" class="btn btn-info">Do Yoga</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</div>
+
+
+
 
 <div
   style="background: linear-gradient(transparent 60%,#081118),linear-gradient(114deg,#8679f9,#71ff97); background-size: 2000px 1500px; background-repeat: no-repeat;">
