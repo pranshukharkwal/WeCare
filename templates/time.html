@@ -19,22 +19,6 @@
 
 {% block body %}
 
-<ul class="nav nav-tabs">
-  <li class="nav-item">
-    <a href="#longgoals" class="nav-link active" data-toggle="tab">Long Term Goals</a>
-  </li>
-  <li class="nav-item">
-    <a href="#shortgoals" class="nav-link" data-toggle="tab">Short Term Goals</a>
-  </li>
-  <li class="nav-item">
-    <a href="#timetable" class="nav-link" data-toggle="tab">Time Table</a>
-  </li>
-
-  <a class="btn btn-danger" href="/time/logout" id="log-out-btn">Log out</a>
-</ul>
-
-{% include 'cookiemanage.html' %}
-
 <!-- Adding scripts for firebase here -->
 <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-firestore.js"></script>
@@ -56,8 +40,25 @@
   firebase.initializeApp(firebaseConfig);
 </script>
 
+
+<!-- Checking for user logged in or not -->
+
 {% if userKey %}
 <!-- Logged in -->
+
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a href="#longgoals" class="nav-link active" data-toggle="tab">Long Term Goals</a>
+  </li>
+  <li class="nav-item">
+    <a href="#shortgoals" class="nav-link" data-toggle="tab">Short Term Goals</a>
+  </li>
+  <li class="nav-item">
+    <a href="#timetable" class="nav-link" data-toggle="tab">Time Table</a>
+  </li>
+
+  <a class="btn btn-danger" href="/time/logout" id="log-out-btn">Log out</a>
+</ul>
 
 <div class="tab-content">
 
@@ -87,7 +88,23 @@
 {% else %}
 <!-- Not logged in -->
 
-<h3>Log In</h3>
+<div id="login-container" style="display: flex; padding: 32px 0;">
+  <div style="margin: 12px auto;">
+    <div class="card text-center" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Time Management Login</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+          content.</p>
+        <button id="sign-in-google" class="btn btn-outline-dark" href="/users/googleauth" role="button"
+          style="text-transform:none">
+          <img width="20px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
+          Login with Google
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script>
 
@@ -102,7 +119,6 @@
     xhttp.open("POST", "/time", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send("userKey=Priyam");
-
   }
 
 </script>
@@ -111,23 +127,6 @@
 {% endif %}
 
 
-<!-- <div
-  style="background: linear-gradient(transparent 60%,#081118),linear-gradient(114deg,#8679f9,#71ff97); background-size: 2000px 1500px; background-repeat: no-repeat;">
-  <div class="container row" style="margin: auto; margin-top: 20vh;">
-    <a href="/longgoals" class="col center"
-      style="padding-block: 75px;border-radius: 25px; background-color: greenyellow; margin-right: 20px;text-align: center;">
-      <h1>Long Term Goals</h1>
-    </a>
-    <a href="/shortgoals" class="col center"
-      style="padding-block: 75px;border-radius: 25px; background-color: skyblue; margin-right: 20px;text-align: center;">
-      <h1> Short Term Goals</h1>
-    </a>
-    <a href="/timetable" class="col center"
-      style="padding-block: 75px; border-radius: 25px;background-color:pink;text-align: center;">
-      <h1>Time Table</h1>
-    </a>
-  </div>
-</div> -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
