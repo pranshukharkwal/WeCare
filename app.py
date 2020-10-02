@@ -1,10 +1,11 @@
-from flask import Flask, render_template, jsonify, request , redirect , url_for, session
+from flask import Flask, render_template, jsonify, request, redirect, url_for, session
 from flask_socketio import SocketIO, join_room, leave_room, emit
 
 # ----------------- app configurations -----------------
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'sanfkabjkfbjkdbfj'
 socketio = SocketIO(app, manage_session=False)
+
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -17,6 +18,11 @@ def index():
         return render_template('index.html')
 
 
+@app.route('/yoga', methods=['GET'])
+def yoga_page():
+    return render_template('yoga.html')
+
+
 @app.route('/chat')
 def chat():
     """Chat room. The user's name and room must be stored in
@@ -27,9 +33,10 @@ def chat():
         return redirect(url_for('.index'))
     return render_template('chat.html', name=name, room=room)
 
+
 @app.route('/suggestions')
 def suggestions():
-  return render_template('suggestion.html')
+    return render_template('suggestion.html')
 
 @app.route('/shortgoals')
 def sg():
@@ -50,7 +57,8 @@ def joined(message):
     A status message is broadcast to all people in the room."""
     room = session.get('room')
     join_room(room)
-    emit('status', {'msg': session.get('name') + ' has entered the room.'}, room=room)
+    emit('status', {'msg': session.get('name') +
+                    ' has entered the room.'}, room=room)
 
 
 @socketio.on('text', namespace='/chat')
@@ -58,7 +66,8 @@ def text(message):
     """Sent by a client when the user entered a new message.
     The message is sent to all people in the room."""
     room = session.get('room')
-    emit('message', {'msg': session.get('name') + ':' + message['msg']}, room=room)
+    emit('message', {'msg': session.get('name') +
+                     ':' + message['msg']}, room=room)
 
 
 @socketio.on('left', namespace='/chat')
@@ -67,10 +76,9 @@ def left(message):
     A status message is broadcast to all people in the room."""
     room = session.get('room')
     leave_room(room)
-    emit('status', {'msg': session.get('name') + ' has left the room.'}, room=room)
-
+    emit('status', {'msg': session.get('name') +
+                    ' has left the room.'}, room=room)
 
 
 if __name__ == "__main__":
     socketio.run(app, debug=True)
-
