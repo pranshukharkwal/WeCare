@@ -34,6 +34,17 @@ def suggestions():
 @app.route('/medication')
 def medication():
     return render_template('medication.html')
+@app.route('/shortgoals')
+def sg():
+    return render_template('shortgoals.html')
+
+@app.route('/longgoals')
+def lg():
+    return render_template('longgoals.html')
+
+@app.route('/timetable')
+def tt():
+    return render_template('timetable.html')
 
 
 @socketio.on('joined', namespace='/chat')

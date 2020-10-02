@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Table</title>
+    
+
+    <link rel="stylesheet" href="/timetable.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css"
+    integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
+</head>
+<body>
+    
+
+<div class="wrapper">
+    <header>
+        <div style="background-color: #adff8a; padding-block: 10px;"><h1 style="text-align: center;">Healthy Timetable generator</h1></div>
+    </header>
+    <br>
+    <div class="button-wrapper" style="display: none;" lol>
+        <button data-btn type="button" style="margin: auto;">Sort activities</button>
+        <button class="clear-button" data-clear type="button" style="margin: auto;">Clear timetable</button>
+    </div>
+    <div class="grid row col" >
+        <table yolo>
+            <thead>
+                <th scope="col">Time</th>
+                <th scope="col">Monday</th>
+                <th scope="col">Tuesday</th>
+                <th scope="col">Wednesday</th>
+                <th scope="col">Thursday</th>
+                <th scope="col">Friday</th>
+            </thead>
+            <tbody>
+                <tr class="bg-yellow">
+                    <th scope="row">7:30am</th>
+                    <td data-cell id='0'></td>
+                    <td data-cell id='1'></td>
+                    <td data-cell id="2"></td>
+                    <td data-cell id="3"></td>
+                    <td data-cell id="4"></td>
+                </tr>
+                <tr>
+                    <th scope="row">9:00am</th>
+                    <td data-cell id="5"></td>
+                    <td data-cell id="6"></td>
+                    <td data-cell id="7"></td>
+                    <td data-cell id="8"></td>
+                    <td data-cell id="9"></td>
+                </tr>
+                
+                <tr class="bg-green">
+                    <th scope="row">9:30am</th>
+                    <td data-cell id="10"></td>
+                    <td data-cell id="11"></td>
+                    <td data-cell id="12"></td>
+                    <td data-cell id="13"></td>
+                    <td data-cell id="14"></td>
+                </tr>
+                <tr>
+                    <th scope="row">10:00am</th>
+                    <td data-cell id="15"></td>
+                    <td data-cell id="16"></td>
+                    <td data-cell id="17"></td>
+                    <td data-cell id="18"></td>
+                    <td data-cell id="19"></td>
+                </tr>
+                <tr>
+                    <th scope="row">11:00am</th>
+                    <td data-cell id="20"></td>
+                    <td data-cell id="21"></td>
+                    <td data-cell id="22"></td>
+                    <td data-cell id="23"></td>
+                    <td data-cell id="24"></td>
+                </tr>
+                <tr>
+                    <th scope="row">12:00</th>
+                    <td data-cell id="25"></td>
+                    <td data-cell id="26"></td>
+                    <td data-cell id='27'></td>
+                    <td data-cell id="28"></td>
+                    <td data-cell id="29"></td>
+                </tr>
+                <tr class="bg-green">
+                    <th scope="row">1:00pm</th>
+                    <td data-cell id="30"></td>
+                    <td data-cell id="31"></td>
+                    <td data-cell id="32"></td>
+                    <td data-cell id="33"></td>
+                    <td data-cell id="34"></td>
+                </tr>
+                <tr>
+                    <th scope="row">2:00pm</th>
+                    <td data-cell id="35"></td>
+                    <td data-cell id="36"></td>
+                    <td data-cell id="37"></td>
+                    <td data-cell id="38"></td>
+                    <td data-cell id="39"></td>
+                </tr>
+                <tr>
+                    <th scope="row">3:00pm</th>
+                    <td data-cell id="40"></td>
+                    <td data-cell id="41"></td>
+                    <td data-cell id="42"></td>
+                    <td data-cell id="43"></td>
+                    <td data-cell id="44"></td>
+                </tr>
+                <tr>
+                    <th scope="row">4:00pm</th>
+                    <td data-cell id="45"></td>
+                    <td data-cell id="46"></td>
+                    <td data-cell id="47"></td>
+                    <td data-cell id="48"></td>
+                    <td data-cell id="49"></td>
+                </tr>
+                <tr class="bg-green">
+                    <th scope="row">5:00pm</th>
+                    <td data-cell id="50"></td>
+                    <td data-cell id="51"></td>
+                    <td data-cell id="52"></td>
+                    <td data-cell id="53"></td>
+                    <td data-cell id="54"></td>
+                </tr>
+                <tr>
+                    <th scope="row">6:00pm</th>
+                    <td data-cell id="55"></td>
+                    <td data-cell id="56"></td>
+                    <td data-cell id="57"></td>
+                    <td data-cell id="58"></td>
+                    <td data-cell id="59"></td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <br>
+
+        
+    </div>
+
+<div show><input type="text" style="display: none;" placeholder="Write here" id="inputwala">
+    <br>
+<button type="submit" id = 'sub' style="background-color: black; display: none;">Submit</button></div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-firestore.js"></script>
+  <script>
+    var firebaseConfig = {
+    apiKey: "AIzaSyDem2cJ3TdO1czSW4eWzI4fK2Mllju0CGU",
+    authDomain: "wecare-3ff3b.firebaseapp.com",
+    databaseURL: "https://wecare-3ff3b.firebaseio.com",
+    projectId: "wecare-3ff3b",
+    storageBucket: "wecare-3ff3b.appspot.com",
+    messagingSenderId: "603037265503",
+    appId: "1:603037265503:web:0db72780031b5e3278f5ea",
+    measurementId: "G-C05VT0WBFR"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+    
+
+const activities = [...document.querySelectorAll('[data-activities] li')]
+const cells = [...document.querySelectorAll('[data-cell]')]
+const btn = document.querySelector('[data-btn]')
+const clear = document.querySelector('[data-clear]')
+const clicking = document.getElementsByClassName('activity')
+const inputwala = document.getElementById('inputwala')
+const yum = document.getElementById('sub')
+const yolo = document.querySelector('[yolo]')
+const lol = document.querySelector('[lol]')
+const show = document.querySelector('[show]')
+
+document.addEventListener('DOMContentLoaded',async function(){
+    var db = firebase.firestore();
+      console.log('DB initialised');
+
+      for(var k=0; k<60; k++){
+          var vella = db.collection("timeTable").doc("table")
+          var doc= await vella.get()
+          var p= doc.data().time[k]
+          cells[k].innerText = p
+      }
+})
+
+
+
+for(var j=0; j<60; j++){
+    cells[j].onclick = function(){
+        var dib = this.id
+        console.log(dib)
+        yolo.style.display = 'none'
+        inputwala.style.display = 'block'
+        yum.style.display = 'block'
+
+yum.onclick = function(){
+    console.log("Hello")
+        yolo.style.display = 'block'
+        inputwala.style.display = 'none'
+        yum.style.display = 'none'
+        cells[dib].innerText = inputwala.value
+        var db = firebase.firestore();
+      console.log('DB initialised');
+
+      db.collection("timeTable").doc("table").update({
+        [`time.${dib}`]: inputwala.value
+      })
+
+
+        inputwala.value=''
+
+}    
+}
+}
+
+const clearTimetable = () => {
+    cells.forEach((el, i) => {
+        el.innerHTML = ''
+    })
+    
+}
+
+const sortActivities = () => {
+    const activitiesList = activities
+    
+    cells.forEach((el, i) => {
+        el.innerHTML = ''
+        
+        if (i < activities.length) {
+            el.innerHTML = `${activitiesList[i].innerHTML}`
+        }
+    })
+}
+
+
+
+btn.addEventListener('click', sortActivities)
+clear.addEventListener('click', clearTimetable)
+
+
+</script>
+
+
+</body>
+</html>
