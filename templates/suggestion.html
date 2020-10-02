@@ -1,282 +1,312 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <title>Your suggestions friend</title>
-</head>
-<body>
-    <script src="{{ url_for('static', filename = 'movies.js') }}"></script>
-    <script src="{{ url_for('static', filename = 'books.js') }}"></script>
-    <script src="{{ url_for('static', filename = 'songs.js') }}"></script>
-    <div id="navbar">
-    <ul class="nav nav-tabs">
-        <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
-        <li><a data-toggle="tab" href="#movies">Movies</a></li>
-        <li><a data-toggle="tab" href="#songs">Songs</a></li>
-        <li><a data-toggle="tab" href="#books">Books</a></li>
-      </ul>
+{% extends 'layout.html' %}
+
+{% block head %}
+<title>Your suggestions friend</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{% endblock %}
+
+{% block body %}
+
+<script src="{{ url_for('static', filename = 'movies.js') }}"></script>
+<script src="{{ url_for('static', filename = 'books.js') }}"></script>
+<script src="{{ url_for('static', filename = 'songs.js') }}"></script>
+
+
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a href="#home" class="nav-link active" data-toggle="tab">Home</a>
+  </li>
+  <li class="nav-item">
+    <a href="#movies" class="nav-link" data-toggle="tab">Movies</a>
+  </li>
+  <li class="nav-item">
+    <a href="#books" class="nav-link" data-toggle="tab">Books</a>
+  </li>
+  <li class="nav-item">
+    <a href="#songs" class="nav-link" data-toggle="tab">Songs</a>
+  </li>
+</ul>
+
+<div id="main-content">
+  <div class="tab-content">
+
+    <div id="home" class="tab-pane fade show active">
+      <h3>Home</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+        dolore magna aliqua.</p>
     </div>
 
-    <div id="main-content">
+    <div id="movies" class="tab-pane fade">
+      <h3>Movies Suggestions Portal</h3>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </p>
+      <form id="movieform">
+        <label for="genre">Choose a genre</label>
+        <select name="genre" id="movieGenreSelect">
+          <option value="Comedy">Comedy</option>
+          <option value="Action">Action</option>
+          <option value="Crime">Crime</option>
+          <option value="Thriller">Thriller</option>
+          <option value="Horror">Horror</option>
+          <option value="Mystery">Mystery</option>
+          <option value="Drama">Drama</option>
+          <option value="Fantasy">Fantasy</option>
+          <option value="War">War</option>
+          <option value="Children">Children</option>
+          <option value="Documentary">Documentary</option>
+          <option value="Animation">Animation</option>
+          <option value="Romance">Romance</option>
+          <option value="Adventure">Adventure</option>
+          <option value="Sci-Fi">Sci-Fi</option>
+          <option value="Musical">Musical</option>
+        </select> <br>
+        <input type="submit" value="Submit">
+      </form>
 
-      <div class="tab-content">
+      <div id="movie-suggestion" class="hidden">
+        <h3 id=movie-name></h3>
+        <img id="movie-img" src="" width="300" heigth=500>
+        <p id="movie-rating"></p>
+        <p id="movie-ratingCount"></p>
+        <p id="movie-storyline"></p>
+        <p id="movie-length"></p>
+        <p id="movie-release"></p>
+      </div>
+    </div>
 
-        <div id="home" class="tab-pane fade in active">
-          <h3>Home</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
+    <div id="books" class="tab-pane fade">
+      <h3>Books suggestion portal</h3>
+      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
+        aperiam.</p>
+      <form id="bookform">
+        <label for="genre">Choose a genre</label>
+        <select name="genre" id="bookGenreSelect">
+          <option value="signal_processing">Signal Processing</option>
+          <option value="data_science">Data Science</option>
+          <option value="mathematics">Mathematics</option>
+          <option value="economics">Economics</option>
+          <option value="history">History</option>
+          <option value="science">Science</option>
+          <option value="psychology">Psychology</option>
+          <option value="fiction">Fiction</option>
+          <option value="computer_science">Computer Science</option>
+          <option value="nonfiction">Non Fiction</option>
+          <option value="philosophy">Philosophy</option>
+        </select> <br>
+        <input type="submit" value="Submit">
+      </form>
 
-        <div id="movies" class="tab-pane fade">
-          <h3>Movies Suggestions Portal</h3>
-          <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          <form id="movieform"> 
-            <label for="genre">Choose a genre</label>
-            <select name="genre" id="movieGenreSelect">
-              <option value = "Comedy">Comedy</option>
-              <option value = "Action">Action</option>
-              <option value = "Crime">Crime</option>
-              <option value = "Thriller">Thriller</option>
-              <option value = "Horror">Horror</option>
-              <option value = "Mystery">Mystery</option>
-              <option value = "Drama">Drama</option>
-              <option value = "Fantasy">Fantasy</option>
-              <option value = "War">War</option>
-              <option value = "Children">Children</option>
-              <option value = "Documentary">Documentary</option>
-              <option value = "Animation">Animation</option>
-              <option value = "Romance">Romance</option>
-              <option value = "Adventure">Adventure</option>
-              <option value = "Sci-Fi">Sci-Fi</option>
-              <option value = "Musical">Musical</option>
-            </select> <br>
-            <input type="submit" value="Submit">
-          </form>
+      <div id="book-suggestion" class="hidden">
+        <h3 id=book-name></h3>
+        <img id="book-img" src="" width="300" heigth=500>
+        <p id="book-authors"></p>
+        <p id="book-publisher"></p>
+        <p id="book-year"></p>
+        <p id="book-pages"></p>
+        <p id="book-language"></p>
+        <p id="book-size"></p>
+        <a id="book-download" target="_blank" href="">Download now</a>
+      </div>
+    </div>
 
-          <div id="movie-suggestion" class="hidden">
-            <h3 id = movie-name></h3>
-            <img id = "movie-img" src="" width="300" heigth = 500>
-            <p id="movie-rating"></p>
-            <p id="movie-ratingCount"></p>
-            <p id="movie-storyline"></p>
-            <p id="movie-length"></p>
-            <p id="movie-release"></p>
-          </div>
-        </div>
+    <div id="songs" class="tab-pane fade">
+      <h3>Songs suggestion portal</h3>
+      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
+        aperiam.</p>
+      <form id="songform">
+        <label for="genre">Choose a genre</label>
+        <select name="genre" id="songGenreSelect">
+          <option value="neo mellow">Neo Mellow</option>
+          <option value="hip hop">Hip Hop</option>
+          <option value="pop">Pop</option>
+          <option value="big room">Big Room</option>
+          <option value="british soul">British Soul</option>
+          <option value="rap">Rap</option>
+          <option value="permanent wave">Permanent Wave</option>
+          <option value="boy band">Boy Band</option>
+          <option value="EDM">EDM</option>
+          <option value="complextro">Complextro</option>
+          <option value="australian dance">Australian Dance</option>
+          <option value="contemporary">Contemporary</option>
+          <option value="latin">Latin</option>
+        </select> <br>
+        <input type="submit" value="Submit">
+      </form>
 
-        <div id="books" class="tab-pane fade">
-          <h3>Books suggestion portal</h3>
-          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-          <form id="bookform"> 
-            <label for="genre">Choose a genre</label>
-            <select name="genre" id="bookGenreSelect">
-              <option value = "signal_processing">Signal Processing</option>
-              <option value = "data_science">Data Science</option>
-              <option value = "mathematics">Mathematics</option>
-              <option value = "economics">Economics</option>
-              <option value = "history">History</option>
-              <option value = "science">Science</option>
-              <option value = "psychology">Psychology</option>
-              <option value = "fiction">Fiction</option>
-              <option value = "computer_science">Computer Science</option>
-              <option value = "nonfiction">Non Fiction</option>
-              <option value = "philosophy">Philosophy</option>
-            </select> <br>
-            <input type="submit" value="Submit">
-          </form>
+      <div id="loader" class="loader hidden"></div>
 
-          <div id="book-suggestion" class="hidden">
-            <h3 id = book-name></h3>
-            <img id = "book-img" src="" width="300" heigth = 500>
-            <p id="book-authors"></p>
-            <p id="book-publisher"></p>
-            <p id="book-year"></p>
-            <p id="book-pages"></p>
-            <p id="book-language"></p>
-            <p id="book-size"></p>
-            <a id="book-download" target="_blank" href="">Download now</a>
-          </div>
-        </div>
+      <div id="song-suggestion" class="hidden">
 
-        <div id="songs" class="tab-pane fade">
-          <h3>Songs suggestion portal</h3>
-          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-          <form id="songform"> 
-            <label for="genre">Choose a genre</label>
-            <select name="genre" id="songGenreSelect">
-              <option value = "neo mellow">Neo Mellow</option>
-              <option value = "hip hop">Hip Hop</option>
-              <option value = "pop">Pop</option>
-              <option value = "big room">Big Room</option>
-              <option value = "british soul">British Soul</option>
-              <option value = "rap">Rap</option>
-              <option value = "permanent wave">Permanent Wave</option>
-              <option value = "boy band">Boy Band</option>
-              <option value = "EDM">EDM</option>
-              <option value = "complextro">Complextro</option>
-              <option value = "australian dance">Australian Dance</option>
-              <option value = "contemporary">Contemporary</option>
-              <option value = "latin">Latin</option>
-            </select> <br>
-            <input type="submit" value="Submit">
-          </form>
+        <h3 id=song-name></h3>
+        <p id="song-artist"></p>
+        <p id="song-year"></p>
+        <p id="song-rating"></p>
+        <p id="song-length"></p>
+        <iframe id="song-youtube" width="560" title="Watch Video" height="315" src="" frameborder="0"
+          allowfullscreen></iframe>
+        <!-- <iframe id = "song-youtube" src="" title="Watch Video"></iframe>  -->
+        <iframe id="song-stream" width="560" title="Watch Video" height="315" src="" title="Play Song"></iframe>
+        <a id="song-download" href="" class="btn btn-lg btn-warning">Download Now</a>
+      </div>
 
-          <div id = "loader" class="loader hidden" ></div>
-
-          <div id="song-suggestion" class="hidden">
-            
-            <h3 id = song-name></h3>
-            <p id="song-artist"></p>
-            <p id="song-year"></p>
-            <p id="song-rating"></p>
-            <p id="song-length"></p>
-            <iframe id = "song-youtube" width="560" title="Watch Video" height="315" src="" frameborder="0" allowfullscreen></iframe>
-            <!-- <iframe id = "song-youtube" src="" title="Watch Video"></iframe>  -->
-            <iframe id = "song-stream" width="560" title="Watch Video" height="315" src="" title="Play Song"></iframe> 
-            <a id = "song-download" href="" class="btn btn-lg btn-warning">Download Now</a>
-          </div>
-
-          <!-- <div id="search-song">
+      <!-- <div id="search-song">
             <form onsubmit="">
 
             </form>
           </div> -->
-        </div>
-
-      </div>
     </div>
-      <script>
 
-        $(document).ready(function(){
-          $("#movieform").submit(function(e){  // Movie form submit handler start
-            e.preventDefault();
-            let genre = document.getElementById('movieGenreSelect').value;
-            let movielist = moviedata[genre]
-            let movieobject = movielist[Math.floor(Math.random() * movielist.length)]
-            console.log("Received movie" , movieobject)
-            let movie = Object.keys(movieobject)[0]
-            console.log("Movie data" , movieobject)
-            console.log("Movie name" , movie)
-            let imdb = movieobject[movie]["rating"]
-            let storyline = movieobject[movie]["storyline"]
-            let thumbnail = movieobject[movie]["thumbnail"]
-            let length = movieobject[movie]["length"]
-            let release = movieobject[movie]["release"]
-            let ratingCount = movieobject[movie]["ratingCount"]
+  </div>
+</div>
+<script>
 
-            console.log(imdb , thumbnail , length , release , ratingCount)
+  $(document).ready(function () {
+    $("#movieform").submit(function (e) {  // Movie form submit handler start
+      e.preventDefault();
+      let genre = document.getElementById('movieGenreSelect').value;
+      let movielist = moviedata[genre]
+      let movieobject = movielist[Math.floor(Math.random() * movielist.length)]
+      console.log("Received movie", movieobject)
+      let movie = Object.keys(movieobject)[0]
+      console.log("Movie data", movieobject)
+      console.log("Movie name", movie)
+      let imdb = movieobject[movie]["rating"]
+      let storyline = movieobject[movie]["storyline"]
+      let thumbnail = movieobject[movie]["thumbnail"]
+      let length = movieobject[movie]["length"]
+      let release = movieobject[movie]["release"]
+      let ratingCount = movieobject[movie]["ratingCount"]
 
-            $("#movie-suggestion").removeClass("hidden")
-            $("#movie-rating").html("IMDB Rating : " + imdb)
-            $("#movie-name").html("Movie Name : " + movie)
-            $("#movie-img").attr("src" , thumbnail)
-            $("#movie-storyline").html("Storyline : " + storyline)
-            $("#movie-release").html("Release Date : " + release)
-            $("#movie-ratingCount").html("Total IMDB Ratings: " + ratingCount)
-            $("#movie-length").html("Length : " + length)
+      console.log(imdb, thumbnail, length, release, ratingCount)
 
-          }) // Movie form submit query end
+      $("#movie-suggestion").removeClass("hidden")
+      $("#movie-rating").html("IMDB Rating : " + imdb)
+      $("#movie-name").html("Movie Name : " + movie)
+      $("#movie-img").attr("src", thumbnail)
+      $("#movie-storyline").html("Storyline : " + storyline)
+      $("#movie-release").html("Release Date : " + release)
+      $("#movie-ratingCount").html("Total IMDB Ratings: " + ratingCount)
+      $("#movie-length").html("Length : " + length)
 
-        
-          $("#bookform").submit(function(e){  // Book form submit handler start
-            e.preventDefault();
-            let genre = document.getElementById('bookGenreSelect').value;
-            let booklist = bookdata[genre]
-            let bookobject = booklist[Math.floor(Math.random() * booklist.length)]
-            let book = Object.keys(bookobject)[0]
-            
-            $("#book-suggestion").removeClass("hidden")
-            $("#book-authors").html("Authors : " + bookobject[book]['authors'])
-            $("#book-name").html("Book Name : " + book)
-            $("#book-img").attr("src" , bookobject[book]['image'])
-            $("#book-year").html("Year : " + bookobject[book]['year'])
-            $("#book-pages").html("Pages : " + bookobject[book]['pages'])
-            $("#book-language").html("Language: " + bookobject[book]['language'])
-            $("#book-size").html("Size : " + bookobject[book]['size'])
-            $("#book-download").attr("href" , bookobject[book]['download'])
-
-          }); //Book form submit handler end
-          
-          $("#songform").submit(function(e){  // Book form submit handler start
-            e.preventDefault();
-            $("#song-suggestion").addClass("hidden")
-            $("#loader").removeClass("hidden");
-
-            let genre = document.getElementById('songGenreSelect').value;
-            let songlist = songdata[genre]
-            let songobject = songlist[Math.floor(Math.random() * songlist.length)]
-            let song = Object.keys(songobject)[0]
+    }) // Movie form submit query end
 
 
-            var data = JSON.stringify({"name":song});
-            var xhr = new XMLHttpRequest();
-            xhr.addEventListener("readystatechange", function() {
-              if(this.readyState === 4) {
-                console.log(this.responseText);
-                var data = JSON.parse(this.responseText);
-                var yturl = data.sharedVideoUrl.split('/')
-                var code = yturl[yturl.length - 1]
-                var embedurl = 'https://youtube.com/embed/' + code
-                console.log("embed url" , embedurl)
-                console.log(data.url)
-                $("#song-suggestion").removeClass("hidden")
-                $("#song-artist").html("Artist : " + songobject[song]['artist'])
-                $("#song-year").html("Year : " + songobject[song]['year'])
-                $("#song-name").html(data.title)
-                $("#song-youtube").attr('src' , embedurl)
-                $("#song-stream").attr('src' , data.vid_url)
-                $("#song-download").attr('href' , data.url)
-                $("#song-rating").html("Rating : " + data.rating)
-                $("#song-length").html("Length : " + data.length)
-                $("#loader").addClass("hidden");
-              }
-            });
-            xhr.open("POST", "https://musicbaazi.herokuapp.com/api/getdata");
-            xhr.setRequestHeader("Content-Type", "application/json");
-            xhr.send(data);
+    $("#bookform").submit(function (e) {  // Book form submit handler start
+      e.preventDefault();
+      let genre = document.getElementById('bookGenreSelect').value;
+      let booklist = bookdata[genre]
+      let bookobject = booklist[Math.floor(Math.random() * booklist.length)]
+      let book = Object.keys(bookobject)[0]
 
-          }); //Song form submit handler end
+      $("#book-suggestion").removeClass("hidden")
+      $("#book-authors").html("Authors : " + bookobject[book]['authors'])
+      $("#book-name").html("Book Name : " + book)
+      $("#book-img").attr("src", bookobject[book]['image'])
+      $("#book-year").html("Year : " + bookobject[book]['year'])
+      $("#book-pages").html("Pages : " + bookobject[book]['pages'])
+      $("#book-language").html("Language: " + bookobject[book]['language'])
+      $("#book-size").html("Size : " + bookobject[book]['size'])
+      $("#book-download").attr("href", bookobject[book]['download'])
 
-        }); //Main document ready query end
+    }); //Book form submit handler end
 
-      </script>
+    $("#songform").submit(function (e) {  // Book form submit handler start
+      e.preventDefault();
+      $("#song-suggestion").addClass("hidden")
+      $("#loader").removeClass("hidden");
 
-      <style>
-        #main-content{
-          background-image:linear-gradient(transparent 60%,#081118),linear-gradient(114deg,#1d1d1f,#71ff97);
-          background-size:2000px 1500px;
-          background-repeat:no-repeat;
-          height:100vh;
-          color:white
+      let genre = document.getElementById('songGenreSelect').value;
+      let songlist = songdata[genre]
+      let songobject = songlist[Math.floor(Math.random() * songlist.length)]
+      let song = Object.keys(songobject)[0]
+
+
+      var data = JSON.stringify({ "name": song });
+      var xhr = new XMLHttpRequest();
+      xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === 4) {
+          console.log(this.responseText);
+          var data = JSON.parse(this.responseText);
+          var yturl = data.sharedVideoUrl.split('/')
+          var code = yturl[yturl.length - 1]
+          var embedurl = 'https://youtube.com/embed/' + code
+          console.log("embed url", embedurl)
+          console.log(data.url)
+          $("#song-suggestion").removeClass("hidden")
+          $("#song-artist").html("Artist : " + songobject[song]['artist'])
+          $("#song-year").html("Year : " + songobject[song]['year'])
+          $("#song-name").html(data.title)
+          $("#song-youtube").attr('src', embedurl)
+          $("#song-stream").attr('src', data.vid_url)
+          $("#song-download").attr('href', data.url)
+          $("#song-rating").html("Rating : " + data.rating)
+          $("#song-length").html("Length : " + data.length)
+          $("#loader").addClass("hidden");
         }
-        select , input{
-          color:black;
-        }
+      });
+      xhr.open("POST", "https://musicbaazi.herokuapp.com/api/getdata");
+      xhr.setRequestHeader("Content-Type", "application/json");
+      xhr.send(data);
 
-        .loader {
-          border: 16px solid #f3f3f3;
-          border-radius: 50%;
-          border-top: 16px solid #3498db;
-          width: 120px;
-          height: 120px;
-          -webkit-animation: spin 2s linear infinite; /* Safari */
-          animation: spin 2s linear infinite;
-        }
-        
-        /* Safari */
-        @-webkit-keyframes spin {
-          0% { -webkit-transform: rotate(0deg); }
-          100% { -webkit-transform: rotate(360deg); }
-        }
-        
-        @keyframes spin {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
-        }
-      </style>
+    }); //Song form submit handler end
 
-</body>
-</html>
+  }); //Main document ready query end
+
+</script>
+
+<style>
+  .hidden {
+    display: none;
+  }
+
+  #main-content {
+    background-image: linear-gradient(transparent 60%, #081118), linear-gradient(114deg, #1d1d1f, #71ff97);
+    background-size: 2000px 1500px;
+    background-repeat: no-repeat;
+    height: 100vh;
+    color: white
+  }
+
+  select,
+  input {
+    color: black;
+  }
+
+  .loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    /* Safari */
+    animation: spin 2s linear infinite;
+  }
+
+  /* Safari */
+  @-webkit-keyframes spin {
+    0% {
+      -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+</style>
+
+{% endblock %}
