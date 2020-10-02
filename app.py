@@ -45,18 +45,22 @@ def suggestions():
 def time():
     if request.method == 'POST':
         userKey = request.form['userKey']
-        print("User key", userKey)
+        displayName = request.form['displayName']
+        print("User key", userKey, displayName)
         session['userKey'] = userKey
-        return jsonify(success=1, userKey=userKey)
+        session['displayName'] = displayName
+        return jsonify(success=1, userKey=userKey, displayName=displayName)
         # So after the post, reload the page
 
     else:
         # Now for both of them
         userKey = ''
+        displayName = ''
         if 'userKey' in session:
             print("User exist", session['userKey'])
             userKey = session['userKey']
-        return render_template('time.html', userKey=userKey)
+            displayName = session['displayName']
+        return render_template('time.html', userKey=userKey, displayName=displayName)
 
 
 @app.route('/time/logout', methods=['POST', 'GET'])

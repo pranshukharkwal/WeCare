@@ -14,37 +14,45 @@
     var db = firebase.firestore();
     console.log('DB initialised');
 
-    var addElement = db.collection('longGoals').doc('apes');
+    var addElement = db.collection('longGoals').doc('{{ userKey }}');
     var doc = await addElement.get()
-    var p = doc.data().shortGoal
-    console.log(p)
+    if (!doc.exists) {
+      db.collection('longGoals').doc('{{ userKey }}').set({
+        longGoal: [],
+        shortGoal: []
+      });
+    } else {
 
-    for (var ele = 0; ele < p.length; ele++) {
-      var j = p[ele]
-      var li = document.createElement("li");
-      li.classList = "goal-item";
-      document.getElementById("shortUL").appendChild(li);
-      var t = document.createTextNode(j);
-      li.appendChild(t);
+      var p = doc.data().shortGoal
+      console.log(p)
 
-      var span = document.createElement("SPAN");
-      var txt = document.createTextNode("\u00D7");
-      span.className = "close";
-      span.appendChild(txt);
-      li.appendChild(span);
+      for (var ele = 0; ele < p.length; ele++) {
+        var j = p[ele]
+        var li = document.createElement("li");
+        li.classList = "goal-item";
+        document.getElementById("shortUL").appendChild(li);
+        var t = document.createTextNode(j);
+        li.appendChild(t);
 
-      for (i = 0; i < close.length; i++) {
-        close[i].onclick = function () {
-          var div = this.parentElement;
-          console.log(div.textContent.slice(0, -1))
-          var toDelete = div.textContent.slice(0, -1)
-          var db = firebase.firestore();
-          console.log('DB initialised');
-          var addElement = db.collection('longGoals').doc('apes');
-          addElement.update({
-            shortGoal: firebase.firestore.FieldValue.arrayRemove(toDelete)
-          })
-          div.style.display = "none";
+        var span = document.createElement("SPAN");
+        var txt = document.createTextNode("\u00D7");
+        span.className = "close";
+        span.appendChild(txt);
+        li.appendChild(span);
+
+        for (i = 0; i < close.length; i++) {
+          close[i].onclick = function () {
+            var div = this.parentElement;
+            console.log(div.textContent.slice(0, -1))
+            var toDelete = div.textContent.slice(0, -1)
+            var db = firebase.firestore();
+            console.log('DB initialised');
+            var addElement = db.collection('longGoals').doc('{{ userKey }}');
+            addElement.update({
+              shortGoal: firebase.firestore.FieldValue.arrayRemove(toDelete)
+            })
+            div.style.display = "none";
+          }
         }
       }
     }
@@ -73,7 +81,7 @@
 
       var db = firebase.firestore();
       console.log('DB initialised');
-      var addElement = db.collection('longGoals').doc('apes');
+      var addElement = db.collection('longGoals').doc('{{ userKey }}');
       addElement.update({
         shortGoal: firebase.firestore.FieldValue.arrayRemove(toDelete)
       })
@@ -104,7 +112,7 @@
       var db = firebase.firestore();
       console.log('DB initialised');
 
-      var addElement = db.collection('longGoals').doc('apes');
+      var addElement = db.collection('longGoals').doc('{{ userKey }}');
 
 
       var goal = document.getElementById("shortInput").value
@@ -129,7 +137,7 @@
         var toDelete = div.textContent.slice(0, -1)
         var db = firebase.firestore();
         console.log('DB initialised');
-        var addElement = db.collection('longGoals').doc('apes');
+        var addElement = db.collection('longGoals').doc('{{ userKey }}');
         addElement.update({
           shortGoal: firebase.firestore.FieldValue.arrayRemove(toDelete)
         })

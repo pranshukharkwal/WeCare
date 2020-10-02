@@ -60,24 +60,33 @@
   <a class="btn btn-danger" href="/time/logout" id="log-out-btn">Log out</a>
 </ul>
 
-<div class="tab-content">
+<div class="tab-content" style="padding: 32px 0;">
 
   <div id="longgoals" class="tab-pane fade show active">
-    <h3>Long Term</h3>
+    <div style="display: flex; margin: 8px 0;">
+      <h3>Long Term</h3>
+      <h3 style="margin-left: auto; padding-right: 4px;">{{ displayName }}</h3>
+    </div>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
       dolore magna aliqua.</p>
     {% include 'longgoals.html' %}
   </div>
 
   <div id="shortgoals" class="tab-pane fade show">
-    <h3>Short Term</h3>
+    <div style="display: flex; margin: 8px 0;">
+      <h3>Short Goals</h3>
+      <h3 style="margin-left: auto; padding-right: 4px;">{{ displayName }}</h3>
+    </div>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
       dolore magna aliqua.</p>
     {% include 'shortgoals.html' %}
   </div>
 
   <div id="timetable" class="tab-pane fade show">
-    <h3>Time Table</h3>
+    <div style="display: flex; margin: 8px 0;">
+      <h3>My TimeTable</h3>
+      <h3 style="margin-left: auto; padding-right: 4px;">{{ displayName }}</h3>
+    </div>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
       dolore magna aliqua.</p>
     {% include 'timetable.html' %}
@@ -121,7 +130,7 @@
       console.log(user);
       console.log("The sing in google");
 
-      signInToBackend(user.email)
+      signInToBackend(user.email, user.displayName)
       // ...
     }).catch(function(error) {
       // Handle Errors here.
@@ -140,7 +149,7 @@
     return str.replace("@", "__").replace(".", "_")
   }
 
-  signInToBackend = (userEmail) => {
+  signInToBackend = (userEmail, displayName) => {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
@@ -154,7 +163,7 @@
     var userKey = emailToKey(userEmail);
     xhttp.open("POST", "/time", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send("userKey="+userKey);
+    xhttp.send("userKey="+userKey+"&displayName="+displayName);
   }
 
 </script>

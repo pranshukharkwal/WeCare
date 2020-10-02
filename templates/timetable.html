@@ -9,8 +9,15 @@
         <button data-btn type="button" style="margin: auto;">Sort activities</button>
         <button class="clear-button" data-clear type="button" style="margin: auto;">Clear timetable</button>
     </div>
+
+    <style>
+        #my-task-table td {
+            cursor: pointer;
+        }
+    </style>
+
     <div class="grid row col">
-        <table yolo>
+        <table id="my-task-table" yolo>
             <thead>
                 <th scope="col">Time</th>
                 <th scope="col">Monday</th>
@@ -121,14 +128,33 @@
         </table>
         <br>
         <br>
-
-
     </div>
 
-    <div show><input type="text" style="display: none;" placeholder="Write here" id="inputwala">
-        <br>
-        <button type="submit" id='sub' style="background-color: black; display: none;">Submit</button></div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Add Task</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" style="display: none;" placeholder="Write here" id="inputwala">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" id='sub' class="btn btn-success">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+
 
 <script>
 
@@ -147,11 +173,20 @@
         var db = firebase.firestore();
         console.log('DB initialised');
 
-        for (var k = 0; k < 60; k++) {
-            var vella = db.collection("timeTable").doc("table")
-            var doc = await vella.get()
-            var p = doc.data().time[k]
-            cells[k].innerText = p
+        var vella = db.collection("timeTable").doc("{{ userKey }}")
+        var doc = await vella.get()
+        if (!doc.exists) {
+            db.collection("timeTable").doc("{{ userKey }}").set({
+                time: {}
+            });
+        } else {
+            for (var k = 0; k < 60; k++) {
+                var p = doc.data().time[k];
+                cells[k].innerHTML = p
+                    ? '<div class="text-info text-center">' + p + '</div>'
+                    // : '<div class="text-info text-center">Add Task</div>';
+                    : '';
+            }
         }
     })
 
@@ -161,22 +196,27 @@
         cells[j].onclick = function () {
             var dib = this.id
             console.log(dib)
-            yolo.style.display = 'none'
+            // yolo.style.display = 'none'
+
+            $('#exampleModalCenter').modal();
+
             inputwala.style.display = 'block'
             yum.style.display = 'block'
 
             yum.onclick = function () {
                 console.log("Hello")
-                yolo.style.display = 'block'
+                // yolo.style.display = 'block'
                 inputwala.style.display = 'none'
                 yum.style.display = 'none'
                 cells[dib].innerText = inputwala.value
                 var db = firebase.firestore();
                 console.log('DB initialised');
 
-                db.collection("timeTable").doc("table").update({
+                db.collection("timeTable").doc("{{ userKey }}").update({
                     [`time.${dib}`]: inputwala.value
                 })
+
+                $('#exampleModalCenter').modal('hide');
 
 
                 inputwala.value = ''
