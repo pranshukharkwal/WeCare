@@ -4128,5 +4128,3 @@ let songdata = {
         }
     ]
 }
-
-    export { songdata };

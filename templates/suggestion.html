@@ -11,12 +11,17 @@
 <body>
     <script src="{{ url_for('static', filename = 'movies.js') }}"></script>
     <script src="{{ url_for('static', filename = 'books.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'songs.js') }}"></script>
+    <div id="navbar">
     <ul class="nav nav-tabs">
         <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
         <li><a data-toggle="tab" href="#movies">Movies</a></li>
         <li><a data-toggle="tab" href="#songs">Songs</a></li>
         <li><a data-toggle="tab" href="#books">Books</a></li>
       </ul>
+    </div>
+
+    <div id="main-content">
 
       <div class="tab-content">
 
@@ -97,12 +102,52 @@
         </div>
 
         <div id="songs" class="tab-pane fade">
-          <h3>Menu 3</h3>
-          <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+          <h3>Songs suggestion portal</h3>
+          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+          <form id="songform"> 
+            <label for="genre">Choose a genre</label>
+            <select name="genre" id="songGenreSelect">
+              <option value = "neo mellow">Neo Mellow</option>
+              <option value = "hip hop">Hip Hop</option>
+              <option value = "pop">Pop</option>
+              <option value = "big room">Big Room</option>
+              <option value = "british soul">British Soul</option>
+              <option value = "rap">Rap</option>
+              <option value = "permanent wave">Permanent Wave</option>
+              <option value = "boy band">Boy Band</option>
+              <option value = "EDM">EDM</option>
+              <option value = "complextro">Complextro</option>
+              <option value = "australian dance">Australian Dance</option>
+              <option value = "contemporary">Contemporary</option>
+              <option value = "latin">Latin</option>
+            </select> <br>
+            <input type="submit" value="Submit">
+          </form>
+
+          <div id = "loader" class="loader hidden" ></div>
+
+          <div id="song-suggestion" class="hidden">
+            
+            <h3 id = song-name></h3>
+            <p id="song-artist"></p>
+            <p id="song-year"></p>
+            <p id="song-rating"></p>
+            <p id="song-length"></p>
+            <iframe id = "song-youtube" width="560" title="Watch Video" height="315" src="" frameborder="0" allowfullscreen></iframe>
+            <!-- <iframe id = "song-youtube" src="" title="Watch Video"></iframe>  -->
+            <iframe id = "song-stream" width="560" title="Watch Video" height="315" src="" title="Play Song"></iframe> 
+            <a id = "song-download" href="" class="btn btn-lg btn-warning">Download Now</a>
+          </div>
+
+          <!-- <div id="search-song">
+            <form onsubmit="">
+
+            </form>
+          </div> -->
         </div>
 
       </div>
-
+    </div>
       <script>
 
         $(document).ready(function(){
@@ -154,9 +199,84 @@
             $("#book-download").attr("href" , bookobject[book]['download'])
 
           }); //Book form submit handler end
+          
+          $("#songform").submit(function(e){  // Book form submit handler start
+            e.preventDefault();
+            $("#song-suggestion").addClass("hidden")
+            $("#loader").removeClass("hidden");
+
+            let genre = document.getElementById('songGenreSelect').value;
+            let songlist = songdata[genre]
+            let songobject = songlist[Math.floor(Math.random() * songlist.length)]
+            let song = Object.keys(songobject)[0]
+
+
+            var data = JSON.stringify({"name":song});
+            var xhr = new XMLHttpRequest();
+            xhr.addEventListener("readystatechange", function() {
+              if(this.readyState === 4) {
+                console.log(this.responseText);
+                var data = JSON.parse(this.responseText);
+                var yturl = data.sharedVideoUrl.split('/')
+                var code = yturl[yturl.length - 1]
+                var embedurl = 'https://youtube.com/embed/' + code
+                console.log("embed url" , embedurl)
+                console.log(data.url)
+                $("#song-suggestion").removeClass("hidden")
+                $("#song-artist").html("Artist : " + songobject[song]['artist'])
+                $("#song-year").html("Year : " + songobject[song]['year'])
+                $("#song-name").html(data.title)
+                $("#song-youtube").attr('src' , embedurl)
+                $("#song-stream").attr('src' , data.vid_url)
+                $("#song-download").attr('href' , data.url)
+                $("#song-rating").html("Rating : " + data.rating)
+                $("#song-length").html("Length : " + data.length)
+                $("#loader").addClass("hidden");
+              }
+            });
+            xhr.open("POST", "https://musicbaazi.herokuapp.com/api/getdata");
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.send(data);
+
+          }); //Song form submit handler end
 
         }); //Main document ready query end
 
       </script>
+
+      <style>
+        #main-content{
+          background-image:linear-gradient(transparent 60%,#081118),linear-gradient(114deg,#1d1d1f,#71ff97);
+          background-size:2000px 1500px;
+          background-repeat:no-repeat;
+          height:100vh;
+          color:white
+        }
+        select , input{
+          color:black;
+        }
+
+        .loader {
+          border: 16px solid #f3f3f3;
+          border-radius: 50%;
+          border-top: 16px solid #3498db;
+          width: 120px;
+          height: 120px;
+          -webkit-animation: spin 2s linear infinite; /* Safari */
+          animation: spin 2s linear infinite;
+        }
+        
+        /* Safari */
+        @-webkit-keyframes spin {
+          0% { -webkit-transform: rotate(0deg); }
+          100% { -webkit-transform: rotate(360deg); }
+        }
+        
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+      </style>
+
 </body>
 </html>

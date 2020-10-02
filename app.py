@@ -38,11 +38,14 @@ def chat():
 def suggestions():
     return render_template('suggestion.html')
 
+@app.route('/medication')
+def medication():
+    return render_template('medication.html')
 @app.route('/shortgoals')
 def sg():
     return render_template('shortgoals.html')
 
-@app.route('/longoals')
+@app.route('/longgoals')
 def lg():
     return render_template('longgoals.html')
 
