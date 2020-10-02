@@ -1,35 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>WeCare</title>
-    <link href="{{ url_for('static',filename='main.css') }}" rel="stylesheet">
+<div id="myDIV" class="header">
+  <h2 style="margin:5px">
+    <h1 style="text-emphasis-color: plum;">Long Term Goals</h1>
+  </h2>
+  <input type="text" id="longInput" placeholder="Title..." style="border-radius: 2%;">
+  <span onclick="newlongElement()" id="btnId" class="addBtn">Add</span>
+</div>
 
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css"
-    integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
+<ul id="longUL">
 
+</ul>
 
-  </head>
-
-<body >
-  <div id="myDIV" class="header">
-    <h2 style="margin:5px"><h1 style="text-emphasis-color: plum;">Long Term Goals</h1></h2>
-    <input type="text" id="myInput" placeholder="Title..." style="border-radius: 2%;">
-    <span onclick="newElement()" id= "btnId" class="addBtn">Add</span>
-   
-  </div>
-
-  
-  <ul id="myUL">
-    
-    
-  </ul>
-  <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-firestore.js"></script>
-  <script>
-    var firebaseConfig = {
+<script>
+  var firebaseConfig = {
     apiKey: "AIzaSyDem2cJ3TdO1czSW4eWzI4fK2Mllju0CGU",
     authDomain: "wecare-3ff3b.firebaseapp.com",
     databaseURL: "https://wecare-3ff3b.firebaseio.com",
@@ -42,51 +27,49 @@
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
 
-    document.addEventListener('DOMContentLoaded',async function(){
+  document.addEventListener('DOMContentLoaded', async function () {
 
-      var db = firebase.firestore();
-      console.log('DB initialised');
-      
+    var db = firebase.firestore();
+    console.log('DB initialised');
+
     var addElement = db.collection('longGoals').doc('apes');
-    var doc= await addElement.get()
-    var p= doc.data().longGoal
+    var doc = await addElement.get()
+    var p = doc.data().longGoal
     console.log(p)
-    
-    for(var ele=0 ; ele<p.length ; ele++){
-    j=p[ele]
-    var li = document.createElement("li");
-    document.getElementById("myUL").appendChild(li);
-    var t = document.createTextNode(j);
-    li.appendChild(t);
 
-    var span = document.createElement("SPAN");
-    var txt = document.createTextNode("\u00D7");
-    span.className = "close";
-    span.appendChild(txt);
-    li.appendChild(span);
-  
-    for (i = 0; i < close.length; i++) {
-      close[i].onclick = function() {
-        var div = this.parentElement;
-        console.log(div.textContent.slice(0,-1))
-        var toDelete=div.textContent.slice(0,-1)
-        var db = firebase.firestore();
-      console.log('DB initialised');
-      var addElement = db.collection('longGoals').doc('apes');
-      addElement.update({
-      longGoal: firebase.firestore.FieldValue.arrayRemove(toDelete)
-    })
-        div.style.display = "none";
+    for (var ele = 0; ele < p.length; ele++) {
+      j = p[ele]
+      var li = document.createElement("li");
+      li.classList = "goal-item";
+      document.getElementById("longUL").appendChild(li);
+      var t = document.createTextNode(j);
+      li.appendChild(t);
+
+      var span = document.createElement("SPAN");
+      var txt = document.createTextNode("\u00D7");
+      span.className = "close";
+      span.appendChild(txt);
+      li.appendChild(span);
+
+      for (i = 0; i < close.length; i++) {
+        close[i].onclick = function () {
+          var div = this.parentElement;
+          console.log(div.textContent.slice(0, -1))
+          var toDelete = div.textContent.slice(0, -1)
+          var db = firebase.firestore();
+          console.log('DB initialised');
+          var addElement = db.collection('longGoals').doc('apes');
+          addElement.update({
+            longGoal: firebase.firestore.FieldValue.arrayRemove(toDelete)
+          })
+          div.style.display = "none";
+        }
       }
-    }
     }
   })
 
-
-
-
   // Create a "close" button and append it to each list item
-  var myNodelist = document.getElementsByTagName("LI");
+  var myNodelist = document.getElementsByClassName("goal-item");
   var i;
   for (i = 0; i < myNodelist.length; i++) {
     var span = document.createElement("SPAN");
@@ -95,12 +78,12 @@
     span.appendChild(txt);
     myNodelist[i].appendChild(span);
   }
-  
+
   // Click on a close button to hide the current list item
   var close = document.getElementsByClassName("close");
   var i;
   for (i = 0; i < close.length; i++) {
-    close[i].onclick = function() {
+    close[i].onclick = function () {
       var div = this.parentElement;
       console.log("YO")
       div.style.display = "none";
@@ -110,75 +93,73 @@
       console.log('DB initialised');
       var addElement = db.collection('longGoals').doc('apes');
       addElement.update({
-      longGoal: firebase.firestore.FieldValue.arrayRemove(toDelete)
-    })
+        longGoal: firebase.firestore.FieldValue.arrayRemove(toDelete)
+      })
 
     }
   }
-  
+
   // Add a "checked" symbol when clicking on a list item
   var list = document.querySelector('ul');
-  list.addEventListener('click', function(ev) {
+  list.addEventListener('click', function (ev) {
     if (ev.target.tagName === 'LI') {
       ev.target.classList.toggle('checked');
     }
   }, false);
-  
+
   // Create a new list item when clicking on the "Add" button
-  async function newElement() {
+  async function newlongElement() {
     var li = document.createElement("li");
-    var inputValue = document.getElementById("myInput").value;
+    li.classList = "goal-item";
+    var inputValue = document.getElementById("longInput").value;
     var t = document.createTextNode(inputValue);
     li.appendChild(t);
     if (inputValue === '') {
       alert("You must write something!");
     } else {
-      document.getElementById("myUL").appendChild(li);
+      document.getElementById("longUL").appendChild(li);
 
       var db = firebase.firestore();
       console.log('DB initialised');
-     
-    var addElement = db.collection('longGoals').doc('apes');
-    
 
-    var goal = document.getElementById("myInput").value
+      var addElement = db.collection('longGoals').doc('apes');
+
+
+      var goal = document.getElementById("longInput").value
       console.log(goal)
       console.log(inputValue)
       addElement.update({
-      longGoal: firebase.firestore.FieldValue.arrayUnion(goal)
-    })
+        longGoal: firebase.firestore.FieldValue.arrayUnion(goal)
+      })
     }
-    document.getElementById("myInput").value = "";
-  
+    document.getElementById("longInput").value = "";
+
     var span = document.createElement("SPAN");
     var txt = document.createTextNode("\u00D7");
     span.className = "close";
     span.appendChild(txt);
     li.appendChild(span);
-  
-    for (i = 0; i < close.length; i++) {
-      close[i].onclick = function() {
-        var div = this.parentElement;
-    
-        console.log(div.textContent.slice(0,-1))
 
-        var toDelete = div.textContent.slice(0,-1)
-        
+    for (i = 0; i < close.length; i++) {
+      close[i].onclick = function () {
+        var div = this.parentElement;
+
+        console.log(div.textContent.slice(0, -1))
+
+        var toDelete = div.textContent.slice(0, -1)
+
         var db = firebase.firestore();
-      console.log('DB initialised');
-      var addElement = db.collection('longGoals').doc('apes');
-      addElement.update({
-      longGoal: firebase.firestore.FieldValue.arrayRemove(toDelete)
-    })
+        console.log('DB initialised');
+        var addElement = db.collection('longGoals').doc('apes');
+        addElement.update({
+          longGoal: firebase.firestore.FieldValue.arrayRemove(toDelete)
+        })
         div.style.display = "none";
       }
     }
   }
 
 
-    
 
-  </script>
 
-</body>
-</html>
+</script>

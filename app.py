@@ -45,13 +45,14 @@ def time():
 @app.route('/medication')
 def medication():
     return render_template('medication.html')
-@app.route('/shortgoals')
-def sg():
-    return render_template('shortgoals.html')
 
-@app.route('/longgoals')
-def lg():
-    return render_template('longgoals.html')
+# @app.route('/shortgoals')
+# def sg():
+#     return render_template('shortgoals.html')
+
+# @app.route('/longgoals')
+# def lg():
+#     return render_template('longgoals.html')
 
 @app.route('/timetable')
 def tt():
