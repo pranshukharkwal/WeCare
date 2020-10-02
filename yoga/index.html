@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yoga sessions</title>
+
+  <!-- CSS only -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+  <link rel="stylesheet" href="css/icomoon.css">
+  <link rel="stylesheet" href="css/simple-line-icons.css">
+
+  <style>
+    .yoga {
+      width: 100%;
+      height: 80vh;
+    }
+
+    .yoga-img {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div id="main">
+    <div id="yogas" class="owl-carousel owl-carousel-fullwidth">
+
+    </div>
+  </div> <!-- End of main -->
+
+  <!-- JS, Popper.js, and jQuery -->
+
+  <script src="js/jquery.min.js"></script>
+  <script src="yoga_src.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+
+  <script>
+    $(document).ready(function () {
+
+      for (var key in yogaImagesUrls) {
+        console.log(key)
+        var stringToAdd = `
+          <div class="row yoga">
+          <div class="col-sm-8">
+          <img src="` + yogaImagesUrls[key] + `" class="yoga-img">
+          </div>
+          <div class="col-sm-4">` + yogaInfoHTML[key] + `</div>
+          </div> `;
+
+        document.getElementById('yogas').innerHTML += stringToAdd;
+      }
+
+      var owl = $('.owl-carousel');
+
+      owl.on('initialized.owl.carousel change.owl.carousel', function (elem) {
+        var current = elem.item.index;
+        $(elem.target).find(".owl-item").eq(current).find(".to-animate").removeClass('fadeInUp animated');
+        $(elem.target).find(".owl-item").eq(current).find(".to-animate-2").removeClass('fadeInUp animated');
+
+      });
+      owl.on('initialized.owl.carousel changed.owl.carousel', function (elem) {
+        setTimeout(function () {
+          var current = elem.item.index;
+          $(elem.target).find(".owl-item").eq(current).find(".to-animate").addClass('fadeInUp animated');
+        }, 700);
+        setTimeout(function () {
+          var current = elem.item.index;
+          $(elem.target).find(".owl-item").eq(current).find(".to-animate-2").addClass('fadeInUp animated');
+        }, 900);
+      });
+
+      owl.owlCarousel({
+        items: 1,
+        loop: true,
+        margin: 0,
+        responsiveClass: true,
+        nav: true,
+        dots: true,
+        autoHeight: true,
+        smartSpeed: 500,
+        autoplay: true,
+        autoplayTimeout: 2000,  // Set the time interval here
+        autoplayHoverPause: true,
+        navText: [
+          "<i class='icon-arrow-left2 owl-direction'></i>",
+          "<i class='icon-arrow-right2 owl-direction'></i>"
+        ]
+      });
+
+    });
+  </script>
+
+  <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script> -->
+
+</body>
+
+</html>
