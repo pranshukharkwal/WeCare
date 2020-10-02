@@ -16,6 +16,7 @@ def index():
 def yoga_page():
     return render_template('yoga.html')
 
+
 @app.route('/chat', methods=['GET', 'POST'])
 def chat():
     if request.method == 'POST':
@@ -24,6 +25,7 @@ def chat():
         return redirect(url_for('.chatroom'))
     else:
         return render_template('chat.html')
+
 
 @app.route('/chatroom')
 def chatroom():
@@ -38,9 +40,34 @@ def chatroom():
 def suggestions():
     return render_template('suggestion.html')
 
-@app.route('/time')
+
+@app.route('/time', methods=['POST', 'GET'])
 def time():
-    return render_template('time.html')
+    if request.method == 'POST':
+        userKey = request.form['userKey']
+        print("User key", userKey)
+        session['userKey'] = userKey
+        return jsonify(success=1, userKey=userKey)
+        # So after the post, reload the page
+
+    else:
+        # Now for both of them
+        userKey = ''
+        if 'userKey' in session:
+            print("User exist", session['userKey'])
+            userKey = session['userKey']
+        return render_template('time.html', userKey=userKey)
+
+
+@app.route('/time/logout', methods=['POST', 'GET'])
+def time_logout():
+    session.pop('userKey')
+    try:
+        print('removing userkey', session['userKey'])
+    except:
+        print("Removing userKey done")
+    return redirect(url_for('time'))
+
 
 @app.route('/medication')
 def medication():
@@ -53,6 +80,7 @@ def medication():
 # @app.route('/longgoals')
 # def lg():
 #     return render_template('longgoals.html')
+
 
 @app.route('/timetable')
 def tt():
