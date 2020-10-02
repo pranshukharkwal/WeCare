@@ -1,14 +1,11 @@
 <div id="myDIV" class="header">
-  <h2 style="margin:5px">
-    <h1 style="text-emphasis-color: plum;">Long Term Goals</h1>
-  </h2>
-  <input type="text" id="longInput" placeholder="Title..." style="border-radius: 2%;">
+  <h2 style="margin:5px">Long Term Goals</h2>
+  <input type="text" id="longInput" placeholder="Title...">
   <span onclick="newlongElement()" id="btnId" class="addBtn">Add</span>
+
 </div>
 
-
 <ul id="longUL">
-
 </ul>
 
 <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
@@ -28,7 +25,6 @@
   firebase.initializeApp(firebaseConfig);
 
   document.addEventListener('DOMContentLoaded', async function () {
-
     var db = firebase.firestore();
     console.log('DB initialised');
 
@@ -38,7 +34,7 @@
     console.log(p)
 
     for (var ele = 0; ele < p.length; ele++) {
-      j = p[ele]
+      var j = p[ele]
       var li = document.createElement("li");
       li.classList = "goal-item";
       document.getElementById("longUL").appendChild(li);
@@ -143,16 +139,13 @@
     for (i = 0; i < close.length; i++) {
       close[i].onclick = function () {
         var div = this.parentElement;
-
         console.log(div.textContent.slice(0, -1))
-
         var toDelete = div.textContent.slice(0, -1)
-
         var db = firebase.firestore();
         console.log('DB initialised');
         var addElement = db.collection('longGoals').doc('apes');
         addElement.update({
-          longGoal: firebase.firestore.FieldValue.arrayRemove(toDelete)
+          longtGoal: firebase.firestore.FieldValue.arrayRemove(toDelete)
         })
         div.style.display = "none";
       }
@@ -163,3 +156,7 @@
 
 
 </script>
+
+</body>
+
+</html>
