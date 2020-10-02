@@ -145,7 +145,7 @@
         console.log('DB initialised');
         var addElement = db.collection('longGoals').doc('apes');
         addElement.update({
-          longtGoal: firebase.firestore.FieldValue.arrayRemove(toDelete)
+          longGoal: firebase.firestore.FieldValue.arrayRemove(toDelete)
         })
         div.style.display = "none";
       }
