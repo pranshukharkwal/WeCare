@@ -9,9 +9,42 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <link href="{{ url_for('static',filename='main.css') }}" rel="stylesheet">
 <link href="{{ url_for('static',filename='timetable.css') }}" rel="stylesheet">
+<style>
+  #log-out-btn {
+    margin-left: auto;
+    margin-right: 8px;
+  }
+</style>
 {% endblock %}
 
 {% block body %}
+
+<!-- Adding scripts for firebase here -->
+<script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-auth.js"></script>
+
+
+<script>
+  var firebaseConfig = {
+    apiKey: "AIzaSyDem2cJ3TdO1czSW4eWzI4fK2Mllju0CGU",
+    authDomain: "wecare-3ff3b.firebaseapp.com",
+    databaseURL: "https://wecare-3ff3b.firebaseio.com",
+    projectId: "wecare-3ff3b",
+    storageBucket: "wecare-3ff3b.appspot.com",
+    messagingSenderId: "603037265503",
+    appId: "1:603037265503:web:0db72780031b5e3278f5ea",
+    measurementId: "G-C05VT0WBFR"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+
+
+<!-- Checking for user logged in or not -->
+
+{% if userKey %}
+<!-- Logged in -->
 
 <ul class="nav nav-tabs">
   <li class="nav-item">
@@ -23,26 +56,37 @@
   <li class="nav-item">
     <a href="#timetable" class="nav-link" data-toggle="tab">Time Table</a>
   </li>
+
+  <a class="btn btn-danger" href="/time/logout" id="log-out-btn">Log out</a>
 </ul>
 
-<div class="tab-content">
+<div class="tab-content" style="padding: 32px 0;">
 
   <div id="longgoals" class="tab-pane fade show active">
-    <h3>Long Term</h3>
+    <div style="display: flex; margin: 8px 0;">
+      <h3>Long Term</h3>
+      <h3 style="margin-left: auto; padding-right: 4px;">{{ displayName }}</h3>
+    </div>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
       dolore magna aliqua.</p>
     {% include 'longgoals.html' %}
   </div>
 
   <div id="shortgoals" class="tab-pane fade show">
-    <h3>Short Term</h3>
+    <div style="display: flex; margin: 8px 0;">
+      <h3>Short Goals</h3>
+      <h3 style="margin-left: auto; padding-right: 4px;">{{ displayName }}</h3>
+    </div>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
       dolore magna aliqua.</p>
     {% include 'shortgoals.html' %}
   </div>
 
   <div id="timetable" class="tab-pane fade show">
-    <h3>Time Table</h3>
+    <div style="display: flex; margin: 8px 0;">
+      <h3>My TimeTable</h3>
+      <h3 style="margin-left: auto; padding-right: 4px;">{{ displayName }}</h3>
+    </div>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
       dolore magna aliqua.</p>
     {% include 'timetable.html' %}
@@ -50,24 +94,84 @@
 </div>
 
 
+{% else %}
+<!-- Not logged in -->
 
-<!-- <div
-  style="background: linear-gradient(transparent 60%,#081118),linear-gradient(114deg,#8679f9,#71ff97); background-size: 2000px 1500px; background-repeat: no-repeat;">
-  <div class="container row" style="margin: auto; margin-top: 20vh;">
-    <a href="/longgoals" class="col center"
-      style="padding-block: 75px;border-radius: 25px; background-color: greenyellow; margin-right: 20px;text-align: center;">
-      <h1>Long Term Goals</h1>
-    </a>
-    <a href="/shortgoals" class="col center"
-      style="padding-block: 75px;border-radius: 25px; background-color: skyblue; margin-right: 20px;text-align: center;">
-      <h1> Short Term Goals</h1>
-    </a>
-    <a href="/timetable" class="col center"
-      style="padding-block: 75px; border-radius: 25px;background-color:pink;text-align: center;">
-      <h1>Time Table</h1>
-    </a>
+<div id="login-container" style="display: flex; padding: 32px 0;">
+  <div style="margin: 12px auto;">
+    <div class="card text-center" style="width: 100%; max-width: 600px;">
+      <div class="card-body">
+        <h3 class="card-title">Time Management Login</h3>
+        <p class="card-text">
+          Some quick example text to build on the card title and make up the bulk of the card's
+          content.
+        </p>
+        <button id="sign-in-google" class="btn btn-outline-dark" href="/users/googleauth" role="button"
+          style="text-transform:none">
+          <img width="20px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
+          Login with Google
+        </button>
+      </div>
+    </div>
   </div>
-</div> -->
+</div>
+
+<script>
+
+  document.getElementById('sign-in-google').onclick = function () {
+    var provider = new firebase.auth.GoogleAuthProvider();
+
+    firebase.auth().signInWithPopup(provider).then(function(result) {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      var token = result.credential.accessToken;
+      // The signed-in user info.
+      var user = result.user;
+      console.log(user);
+      console.log("The sing in google");
+
+      signInToBackend(user.email, user.displayName)
+      // ...
+    }).catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // The email of the user's account used.
+      var email = error.email;
+      // The firebase.auth.AuthCredential type that was used.
+      var credential = error.credential;
+      // ...
+    });
+  }
+
+  function emailToKey(email) {
+    var str = email.toString();
+    return str.replace("@", "__").replace(".", "_")
+  }
+
+  signInToBackend = (userEmail, displayName) => {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        console.log("Great", this.responseText)
+        location.reload()
+      }
+    };
+
+    console.log("Making request");
+
+    var userKey = emailToKey(userEmail);
+    xhttp.open("POST", "/time", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("userKey="+userKey+"&displayName="+displayName);
+  }
+
+</script>
+
+
+{% endif %}
+
+
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"

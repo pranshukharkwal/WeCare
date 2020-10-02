@@ -43,9 +43,36 @@ def suggestions():
     return render_template('suggestion.html')
 
 
-@app.route('/time')
+@app.route('/time', methods=['POST', 'GET'])
 def time():
-    return render_template('time.html')
+    if request.method == 'POST':
+        userKey = request.form['userKey']
+        displayName = request.form['displayName']
+        print("User key", userKey, displayName)
+        session['userKey'] = userKey
+        session['displayName'] = displayName
+        return jsonify(success=1, userKey=userKey, displayName=displayName)
+        # So after the post, reload the page
+
+    else:
+        # Now for both of them
+        userKey = ''
+        displayName = ''
+        if 'userKey' in session:
+            print("User exist", session['userKey'])
+            userKey = session['userKey']
+            displayName = session['displayName']
+        return render_template('time.html', userKey=userKey, displayName=displayName)
+
+
+@app.route('/time/logout', methods=['POST', 'GET'])
+def time_logout():
+    session.pop('userKey')
+    try:
+        print('removing userkey', session['userKey'])
+    except:
+        print("Removing userKey done")
+    return redirect(url_for('time'))
 
 
 @app.route('/medication')

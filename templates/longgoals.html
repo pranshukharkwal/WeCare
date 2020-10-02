@@ -8,60 +8,56 @@
 <ul id="longUL">
 </ul>
 
-<script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-firestore.js"></script>
 <script>
-  var firebaseConfig = {
-    apiKey: "AIzaSyDem2cJ3TdO1czSW4eWzI4fK2Mllju0CGU",
-    authDomain: "wecare-3ff3b.firebaseapp.com",
-    databaseURL: "https://wecare-3ff3b.firebaseio.com",
-    projectId: "wecare-3ff3b",
-    storageBucket: "wecare-3ff3b.appspot.com",
-    messagingSenderId: "603037265503",
-    appId: "1:603037265503:web:0db72780031b5e3278f5ea",
-    measurementId: "G-C05VT0WBFR"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
 
   document.addEventListener('DOMContentLoaded', async function () {
     var db = firebase.firestore();
     console.log('DB initialised');
 
-    var addElement = db.collection('longGoals').doc('apes');
+    var addElement = db.collection('longGoals').doc('{{ userKey }}');
     var doc = await addElement.get()
-    var p = doc.data().longGoal
-    console.log(p)
+    if (!doc.exists) {
+      db.collection('longGoals').doc('{{ userKey }}').set({
+        longGoal: [],
+        shortGoal: []
+      });
+    } else {
+      var p = doc.data().longGoal
+      console.log(p)
 
-    for (var ele = 0; ele < p.length; ele++) {
-      var j = p[ele]
-      var li = document.createElement("li");
-      li.classList = "goal-item";
-      document.getElementById("longUL").appendChild(li);
-      var t = document.createTextNode(j);
-      li.appendChild(t);
+      for (var ele = 0; ele < p.length; ele++) {
+        var j = p[ele]
+        var li = document.createElement("li");
+        li.classList = "goal-item";
+        document.getElementById("longUL").appendChild(li);
+        var t = document.createTextNode(j);
+        li.appendChild(t);
 
-      var span = document.createElement("SPAN");
-      var txt = document.createTextNode("\u00D7");
-      span.className = "close";
-      span.appendChild(txt);
-      li.appendChild(span);
+        var span = document.createElement("SPAN");
+        var txt = document.createTextNode("\u00D7");
+        span.className = "close";
+        span.appendChild(txt);
+        li.appendChild(span);
 
-      for (i = 0; i < close.length; i++) {
-        close[i].onclick = function () {
-          var div = this.parentElement;
-          console.log(div.textContent.slice(0, -1))
-          var toDelete = div.textContent.slice(0, -1)
-          var db = firebase.firestore();
-          console.log('DB initialised');
-          var addElement = db.collection('longGoals').doc('apes');
-          addElement.update({
-            longGoal: firebase.firestore.FieldValue.arrayRemove(toDelete)
-          })
-          div.style.display = "none";
+        for (i = 0; i < close.length; i++) {
+          close[i].onclick = function () {
+            var div = this.parentElement;
+            console.log(div.textContent.slice(0, -1))
+            var toDelete = div.textContent.slice(0, -1)
+            var db = firebase.firestore();
+            console.log('DB initialised');
+            var addElement = db.collection('longGoals').doc('{{ userKey }}');
+            addElement.update({
+              longGoal: firebase.firestore.FieldValue.arrayRemove(toDelete)
+            })
+            div.style.display = "none";
+          }
         }
       }
+    
+    
     }
+
   })
 
   // Create a "close" button and append it to each list item
@@ -87,7 +83,7 @@
 
       var db = firebase.firestore();
       console.log('DB initialised');
-      var addElement = db.collection('longGoals').doc('apes');
+      var addElement = db.collection('longGoals').doc('{{ userKey }}');
       addElement.update({
         longGoal: firebase.firestore.FieldValue.arrayRemove(toDelete)
       })
@@ -118,7 +114,7 @@
       var db = firebase.firestore();
       console.log('DB initialised');
 
-      var addElement = db.collection('longGoals').doc('apes');
+      var addElement = db.collection('longGoals').doc('{{ userKey }}');
 
 
       var goal = document.getElementById("longInput").value
@@ -143,7 +139,7 @@
         var toDelete = div.textContent.slice(0, -1)
         var db = firebase.firestore();
         console.log('DB initialised');
-        var addElement = db.collection('longGoals').doc('apes');
+        var addElement = db.collection('longGoals').doc('{{ userKey }}');
         addElement.update({
           longGoal: firebase.firestore.FieldValue.arrayRemove(toDelete)
         })
