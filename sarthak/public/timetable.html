@@ -4,23 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Time Table</title>
-      <!-- include only the Firebase features as you need -->
-  <script defer src="https://www.gstatic.com/firebasejs/7.21.1/firebase-firestore.js"></script>
-  
+    
 
-  <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-firestore.js"></script>
-
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/7.21.1/firebase-app.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/7.21.1/firebase-auth.js"></script>
-    <script defer src="/__/firebase/7.21.1/firebase-database.js"></script>
-    <script defer src="/__/firebase/7.21.1/firebase-firestore.js"></script>
-    <script defer src="/__/firebase/7.21.1/firebase-messaging.js"></script>
-    <script defer src="/__/firebase/7.21.1/firebase-storage.js"></script>
-    <!-- initialize the SDK after all desired features are loaded -->
-    <script defer src="/__/firebase/init.js"></script>
     <link rel="stylesheet" href="/timetable.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css"
     integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
@@ -158,7 +143,21 @@
 <button type="submit" id = 'sub' style="background-color: black; display: none;">Submit</button></div>
 </div>
 
-<script>
+<script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-firestore.js"></script>
+  <script>
+    var firebaseConfig = {
+    apiKey: "AIzaSyDem2cJ3TdO1czSW4eWzI4fK2Mllju0CGU",
+    authDomain: "wecare-3ff3b.firebaseapp.com",
+    databaseURL: "https://wecare-3ff3b.firebaseio.com",
+    projectId: "wecare-3ff3b",
+    storageBucket: "wecare-3ff3b.appspot.com",
+    messagingSenderId: "603037265503",
+    appId: "1:603037265503:web:0db72780031b5e3278f5ea",
+    measurementId: "G-C05VT0WBFR"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
     
 
 const activities = [...document.querySelectorAll('[data-activities] li')]

@@ -6,24 +6,7 @@
     <title>WeCare</title>
     <link href="/main.css" rel="stylesheet">
 
-    
-  <!-- include only the Firebase features as you need -->
-  <script defer src="https://www.gstatic.com/firebasejs/7.21.1/firebase-firestore.js"></script>
-  
 
-  <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-firestore.js"></script>
-
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/7.21.1/firebase-app.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/7.21.1/firebase-auth.js"></script>
-    <script defer src="/__/firebase/7.21.1/firebase-database.js"></script>
-    <script defer src="/__/firebase/7.21.1/firebase-firestore.js"></script>
-    <script defer src="/__/firebase/7.21.1/firebase-messaging.js"></script>
-    <script defer src="/__/firebase/7.21.1/firebase-storage.js"></script>
-    <!-- initialize the SDK after all desired features are loaded -->
-    <script defer src="/__/firebase/init.js"></script>
     
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css"
     integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
@@ -31,10 +14,10 @@
 
   </head>
 
-<body >
+<body>
   <div id="myDIV" class="header">
-    <h2 style="margin:5px"><h1 style="text-emphasis-color: plum;">Long Term Goals</h1></h2>
-    <input type="text" id="myInput" placeholder="Title..." style="border-radius: 2%;">
+    <h2 style="margin:5px">Short Term Goals</h2>
+    <input type="text" id="myInput" placeholder="Title...">
     <span onclick="newElement()" id= "btnId" class="addBtn">Add</span>
    
   </div>
@@ -45,14 +28,29 @@
     
   </ul>
   
-  <script>
+  <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-firestore.js"></script>
+    <script>
+      var firebaseConfig = {
+      apiKey: "AIzaSyDem2cJ3TdO1czSW4eWzI4fK2Mllju0CGU",
+      authDomain: "wecare-3ff3b.firebaseapp.com",
+      databaseURL: "https://wecare-3ff3b.firebaseio.com",
+      projectId: "wecare-3ff3b",
+      storageBucket: "wecare-3ff3b.appspot.com",
+      messagingSenderId: "603037265503",
+      appId: "1:603037265503:web:0db72780031b5e3278f5ea",
+      measurementId: "G-C05VT0WBFR"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
     document.addEventListener('DOMContentLoaded',async function(){
       var db = firebase.firestore();
       console.log('DB initialised');
       
     var addElement = db.collection('longGoals').doc('apes');
     var doc= await addElement.get()
-    var p= doc.data().longGoal
+    var p= doc.data().shortGoal
     console.log(p)
     
     for(var ele=0 ; ele<p.length ; ele++){
@@ -77,7 +75,7 @@
       console.log('DB initialised');
       var addElement = db.collection('longGoals').doc('apes');
       addElement.update({
-      longGoal: firebase.firestore.FieldValue.arrayRemove(toDelete)
+      shortGoal: firebase.firestore.FieldValue.arrayRemove(toDelete)
     })
         div.style.display = "none";
       }
@@ -113,7 +111,7 @@
       console.log('DB initialised');
       var addElement = db.collection('longGoals').doc('apes');
       addElement.update({
-      longGoal: firebase.firestore.FieldValue.arrayRemove(toDelete)
+      shortGoal: firebase.firestore.FieldValue.arrayRemove(toDelete)
     })
 
     }
@@ -140,7 +138,7 @@
 
       var db = firebase.firestore();
       console.log('DB initialised');
-     
+      
     var addElement = db.collection('longGoals').doc('apes');
     
 
@@ -148,7 +146,7 @@
       console.log(goal)
       console.log(inputValue)
       addElement.update({
-      longGoal: firebase.firestore.FieldValue.arrayUnion(goal)
+      shortGoal: firebase.firestore.FieldValue.arrayUnion(goal)
     })
     }
     document.getElementById("myInput").value = "";
@@ -162,16 +160,13 @@
     for (i = 0; i < close.length; i++) {
       close[i].onclick = function() {
         var div = this.parentElement;
-    
         console.log(div.textContent.slice(0,-1))
-
-        var toDelete = div.textContent.slice(0,-1)
-        
+        var toDelete=div.textContent.slice(0,-1)
         var db = firebase.firestore();
       console.log('DB initialised');
       var addElement = db.collection('longGoals').doc('apes');
       addElement.update({
-      longGoal: firebase.firestore.FieldValue.arrayRemove(toDelete)
+      shortGoal: firebase.firestore.FieldValue.arrayRemove(toDelete)
     })
         div.style.display = "none";
       }
