@@ -24,7 +24,6 @@
     } else {
 
       var p = doc.data().shortGoal
-      console.log(p)
 
       for (var ele = 0; ele < p.length; ele++) {
         var j = p[ele]
@@ -43,7 +42,6 @@
         for (i = 0; i < close.length; i++) {
           close[i].onclick = function () {
             var div = this.parentElement;
-            console.log(div.textContent.slice(0, -1))
             var toDelete = div.textContent.slice(0, -1)
             var db = firebase.firestore();
             console.log('DB initialised');
@@ -75,7 +73,6 @@
   for (i = 0; i < close.length; i++) {
     close[i].onclick = function () {
       var div = this.parentElement;
-      console.log("YO")
       div.style.display = "none";
       var toDelete = myNodelist[i]
 
@@ -116,8 +113,6 @@
 
 
       var goal = document.getElementById("shortInput").value
-      console.log(goal)
-      console.log(inputValue)
       addElement.update({
         shortGoal: firebase.firestore.FieldValue.arrayUnion(goal)
       })
@@ -133,7 +128,6 @@
     for (i = 0; i < close.length; i++) {
       close[i].onclick = function () {
         var div = this.parentElement;
-        console.log(div.textContent.slice(0, -1))
         var toDelete = div.textContent.slice(0, -1)
         var db = firebase.firestore();
         console.log('DB initialised');

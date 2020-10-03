@@ -177,18 +177,13 @@
       let genre = document.getElementById('movieGenreSelect').value;
       let movielist = moviedata[genre]
       let movieobject = movielist[Math.floor(Math.random() * movielist.length)]
-      console.log("Received movie", movieobject)
       let movie = Object.keys(movieobject)[0]
-      console.log("Movie data", movieobject)
-      console.log("Movie name", movie)
       let imdb = movieobject[movie]["rating"]
       let storyline = movieobject[movie]["storyline"]
       let thumbnail = movieobject[movie]["thumbnail"]
       let length = movieobject[movie]["length"]
       let release = movieobject[movie]["release"]
       let ratingCount = movieobject[movie]["ratingCount"]
-
-      console.log(imdb, thumbnail, length, release, ratingCount)
 
       $("#movie-suggestion").removeClass("hidden")
       $("#movie-rating").html("<b style=\"color:#E6FB04\" > IMDB Rating : </b>" + imdb)
@@ -237,13 +232,11 @@
       var xhr = new XMLHttpRequest();
       xhr.addEventListener("readystatechange", function () {
         if (this.readyState === 4) {
-          console.log(this.responseText);
           var data = JSON.parse(this.responseText);
           var yturl = data.sharedVideoUrl.split('/')
           var code = yturl[yturl.length - 1]
           var embedurl = 'https://youtube.com/embed/' + code
-          console.log("embed url", embedurl)
-          console.log(data.url)
+
           $("#song-suggestion").removeClass("hidden")
           $("#song-artist").html("<b style=\"color:#E6FB04\" > Artist : </b>" + songobject[song]['artist'])
           $("#song-year").html("<b style=\"color:#E6FB04\" > Year : </b>" + songobject[song]['year'])

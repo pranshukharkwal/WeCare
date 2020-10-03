@@ -69,7 +69,7 @@
                     <td data-cell id="24"></td>
                 </tr>
                 <tr>
-                    <th scope="row">12:00</th>
+                    <th scope="row">12:00pm</th>
                     <td data-cell id="25"></td>
                     <td data-cell id="26"></td>
                     <td data-cell id='27'></td>
@@ -123,6 +123,46 @@
                     <td data-cell id="57"></td>
                     <td data-cell id="58"></td>
                     <td data-cell id="59"></td>
+                </tr>
+                <tr>
+                    <th scope="row">7:00pm</th>
+                    <td data-cell id="60"></td>
+                    <td data-cell id="61"></td>
+                    <td data-cell id="62"></td>
+                    <td data-cell id="63"></td>
+                    <td data-cell id="64"></td>
+                </tr>
+                <tr>
+                    <th scope="row">8:00pm</th>
+                    <td data-cell id="65"></td>
+                    <td data-cell id="66"></td>
+                    <td data-cell id="67"></td>
+                    <td data-cell id="68"></td>
+                    <td data-cell id="69"></td>
+                </tr>
+                <tr>
+                    <th scope="row">9:00pm</th>
+                    <td data-cell id="70"></td>
+                    <td data-cell id="71"></td>
+                    <td data-cell id="72"></td>
+                    <td data-cell id="73"></td>
+                    <td data-cell id="74"></td>
+                </tr>
+                <tr>
+                    <th scope="row">10:00pm</th>
+                    <td data-cell id="75"></td>
+                    <td data-cell id="76"></td>
+                    <td data-cell id="77"></td>
+                    <td data-cell id="78"></td>
+                    <td data-cell id="79"></td>
+                </tr>
+                <tr>
+                    <th scope="row">11:00pm</th>
+                    <td data-cell id="80"></td>
+                    <td data-cell id="81"></td>
+                    <td data-cell id="82"></td>
+                    <td data-cell id="83"></td>
+                    <td data-cell id="84"></td>
                 </tr>
             </tbody>
         </table>
@@ -180,7 +220,7 @@
                 time: {}
             });
         } else {
-            for (var k = 0; k < 60; k++) {
+            for (var k = 0; k < 85; k++) {
                 var p = doc.data().time[k];
                 cells[k].innerHTML = p
                     ? '<div class="text-info text-center">' + p + '</div>'
@@ -192,10 +232,9 @@
 
 
 
-    for (var j = 0; j < 60; j++) {
+    for (var j = 0; j < 85; j++) {
         cells[j].onclick = function () {
             var dib = this.id
-            console.log(dib)
             // yolo.style.display = 'none'
 
             $('#exampleModalCenter').modal();
@@ -204,7 +243,6 @@
             yum.style.display = 'block'
 
             yum.onclick = function () {
-                console.log("Hello")
                 // yolo.style.display = 'block'
                 inputwala.style.display = 'none'
                 yum.style.display = 'none'
