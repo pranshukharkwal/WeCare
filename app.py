@@ -16,7 +16,7 @@ def index():
 
 @app.route('/yoga', methods=['GET'])
 def yoga_page():
-    return render_template('yoga.html')
+    return render_template('yoga.html', toLoadV2=True)
 
 
 @app.route('/chat', methods=['GET', 'POST'])

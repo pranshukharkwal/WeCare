@@ -62,22 +62,21 @@
     <section id="intro">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-5">
+                <div class="col-lg-5">
 
                     <img src="/static/img/front_image.jpg"
                         style="padding:25px 40px;height:320px; margin-left:100px;border-radius:100%"><br>
                     <h3 style="margin-left:90px;">Your Health is our first priority!</h3>
 
                 </div>
-                <div class="col-md-7 pro-intro">
+                <div class="col-lg-7 pro-intro">
                     <div class="pro-intro-head">
                         <img class="our-logo" src="/static/img/new-we-care.svg" alt="Card image cap">
                         We Care
                     </div>
                     <div class="row pro-intro-list">
                         <div class="col">
-                            <img class="intro-imgs" src="/static/img/sugg.jpg" alt="Card image cap"
-                                style="height:100px;">
+                            <img class="intro-imgs" src="/static/img/sugg.jpg" alt="Card image cap" style="height:90%;">
                         </div>
                         <div class="col">
                             <img class="intro-imgs" src="/static/img/time-management-removebg-preview.png"
@@ -103,7 +102,7 @@
         <div class="container-fluid">
             <div class="row">
 
-                <div class="col-sm-3">
+                <div class="col-sm-6 col-lg-3">
                     <div class="card">
                         <img class="card-img-top" src="/static/img/sugg.jpg" alt="Card image cap"
                             style=" margin-top: 30px;width:250px;height:250px;">
@@ -118,7 +117,7 @@
                     </div>
                 </div>
 
-                <div class="col-sm-3">
+                <div class="col-sm-6 col-lg-3">
                     <div class="card">
                         <img class="card-img-top" src="/static/img/time-management-removebg-preview.png"
                             alt="Card image cap" style=" margin-top: 30px;width:250px;height:250px;">
@@ -133,7 +132,7 @@
                     </div>
                 </div>
 
-                <div class="col-sm-3">
+                <div class="col-sm-6 col-lg-3">
                     <div class="card">
                         <img class="card-img-top" src="/static/img/ne1.png" alt="Card image cap"
                             style=" margin-top: 30px;width:250px;height:250px;">
@@ -150,7 +149,7 @@
                     </div>
                 </div>
 
-                <div class="col-sm-3">
+                <div class="col-sm-6 col-lg-3">
                     <div class="card">
                         <img class="card-img-top" src="/static/img/yoga-svgrepo-com.svg" alt="Card image cap"
                             style=" margin-top: 30px;width:250px;height:250px;">
@@ -193,7 +192,34 @@
         document.getElementById("writer").innerHTML = "- " + writer
     </script>
 
-
 </div>
+
+<style>
+    .sticky {
+        position: fixed;
+        top: 0;
+        width: 100%;
+    }
+
+    #top-nav {
+        z-index: 100;
+    }
+
+    .myshadown {
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+    }
+</style>
+<script>
+    window.addEventListener('scroll', function () {
+        console.log(window.pageYOffset)
+        if (window.pageYOffset > 300) {
+            document.getElementById('top-nav').classList.add('sticky');
+            document.getElementById('top-nav').classList.add('myshadown');
+        } else {
+            document.getElementById('top-nav').classList.remove('sticky');
+            document.getElementById('top-nav').classList.remove('myshadown');
+        }
+    });
+</script>
 
 {% endblock %}
