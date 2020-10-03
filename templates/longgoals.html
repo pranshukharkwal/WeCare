@@ -1,6 +1,6 @@
 <div id="myDIV" class="header">
   <h2 style="margin:5px">Long Term Goals</h2>
-  <input type="text" id="longInput" placeholder="Title...">
+  <input type="text" id="longInput" placeholder="Set a long term goal">
   <span onclick="newlongElement()" id="btnId" class="addBtn">Add</span>
 
 </div>
@@ -54,8 +54,8 @@
           }
         }
       }
-    
-    
+
+
     }
 
   })
@@ -148,7 +148,12 @@
     }
   }
 
-
+  $('#longInput').keypress(function (e) {
+    var code = e.keyCode || e.which;
+    if (code == 13) {
+      newlongElement()
+    }
+  });
 
 
 </script>

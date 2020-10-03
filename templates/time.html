@@ -46,18 +46,18 @@
 {% if userKey %}
 <!-- Logged in -->
 
-<ul class="nav nav-tabs">
-  <li class="nav-item">
+<ul class="row nav nav-tabs">
+  <li class="col nav-item">
     <a href="#longgoals" class="nav-link active" data-toggle="tab">Long Term Goals</a>
   </li>
-  <li class="nav-item">
+  <li class="col nav-item">
     <a href="#shortgoals" class="nav-link" data-toggle="tab">Short Term Goals</a>
   </li>
-  <li class="nav-item">
+  <li class="col nav-item">
     <a href="#timetable" class="nav-link" data-toggle="tab">Time Table</a>
   </li>
 
-  <a class="btn btn-danger" href="/time/logout" id="log-out-btn">Log out</a>
+  <a class="col btn btn-danger" href="/time/logout" id="log-out-btn">Log out</a>
 </ul>
 
 <div class="tab-content" style="padding: 32px 0;">
@@ -94,8 +94,8 @@
       <div class="card-body">
         <h3 class="card-title">Time Management Login</h3>
         <p class="card-text">
-          Some quick example text to build on the card title and make up the bulk of the card's
-          content.
+          Login using your google account, and we will help in managing your time more effectively, with our goals
+          planner, and time table manager.
         </p>
         <button id="sign-in-google" class="btn btn-outline-dark" href="/users/googleauth" role="button"
           style="text-transform:none">

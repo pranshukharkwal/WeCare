@@ -146,7 +146,12 @@
     }
   }
 
-
+  $('#shortInput').keypress(function (e) {
+    var code = e.keyCode || e.which;
+    if (code == 13) {
+      newshortElement()
+    }
+  });
 
 
 </script>
