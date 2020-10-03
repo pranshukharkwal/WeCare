@@ -1,6 +1,6 @@
 <div id="myDIV" class="header">
   <h2 style="margin:5px">Long Term Goals</h2>
-  <input type="text" id="longInput" placeholder="Title...">
+  <input type="text" id="longInput" placeholder="Set a long term goal">
   <span onclick="newlongElement()" id="btnId" class="addBtn">Add</span>
 
 </div>
@@ -23,7 +23,6 @@
       });
     } else {
       var p = doc.data().longGoal
-      console.log(p)
 
       for (var ele = 0; ele < p.length; ele++) {
         var j = p[ele]
@@ -42,7 +41,6 @@
         for (i = 0; i < close.length; i++) {
           close[i].onclick = function () {
             var div = this.parentElement;
-            console.log(div.textContent.slice(0, -1))
             var toDelete = div.textContent.slice(0, -1)
             var db = firebase.firestore();
             console.log('DB initialised');
@@ -54,8 +52,8 @@
           }
         }
       }
-    
-    
+
+
     }
 
   })
@@ -77,7 +75,6 @@
   for (i = 0; i < close.length; i++) {
     close[i].onclick = function () {
       var div = this.parentElement;
-      console.log("YO")
       div.style.display = "none";
       var toDelete = myNodelist[i]
 
@@ -118,8 +115,6 @@
 
 
       var goal = document.getElementById("longInput").value
-      console.log(goal)
-      console.log(inputValue)
       addElement.update({
         longGoal: firebase.firestore.FieldValue.arrayUnion(goal)
       })
@@ -135,7 +130,6 @@
     for (i = 0; i < close.length; i++) {
       close[i].onclick = function () {
         var div = this.parentElement;
-        console.log(div.textContent.slice(0, -1))
         var toDelete = div.textContent.slice(0, -1)
         var db = firebase.firestore();
         console.log('DB initialised');
@@ -148,7 +142,12 @@
     }
   }
 
-
+  $('#longInput').keypress(function (e) {
+    var code = e.keyCode || e.which;
+    if (code == 13) {
+      newlongElement()
+    }
+  });
 
 
 </script>
