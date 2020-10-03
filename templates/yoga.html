@@ -47,11 +47,13 @@
 
   <div class="control-btns"
     style="display: flex; align-items: center; justify-content: center; z-index: 9; margin: 18px 0;">
-    <button class="btn btn-success play">Play</button>
+    <button class="btn btn-success play">Start</button>
     <button class="btn btn-danger stop">Stop</button>
+    <button class="btn btn-dark reset">Reset</button>
   </div>
-
-  <h3 class="text-center">Do This Exercise for 5 minutes!</h3>
+  <h1 style="margin:auto; background:#f3e183;; border-radius: 10px; width:fit-content ; padding:10px" id="time-counter">
+    60</h1>
+  <h3 class="text-center">Do This Exercise for 1 minute!</h3>
 
 </div>
 <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
@@ -60,6 +62,14 @@
 
 <script>
   $(document).ready(function () {
+
+    var c = 60;
+    function myCounter() {
+      if (c > 0)
+        document.getElementById("time-counter").innerHTML = c--;
+      else
+        document.getElementById("time-counter").innerHTML = "Well Done ! Move on to the next pose, or click reset if you want do again"
+    }
 
     for (var key in yogaImagesUrls) {
       var stringToAdd = `
@@ -101,7 +111,7 @@
       dots: true,
       autoHeight: true,
       smartSpeed: 500,
-      autoplay: true,
+      autoplay: false,
       autoplayTimeout: 5000,  // Set the time interval here
       autoplayHoverPause: false,
       navText: [
@@ -111,13 +121,32 @@
     });
 
     $('.play').on('click', function () {
-      owl.trigger('play.owl.autoplay', [5000])
+      // owl.trigger('play.owl.autoplay', [5000])
+      myTimer = setInterval(myCounter, 1000)
     })
     $('.stop').on('click', function () {
-      owl.trigger('stop.owl.autoplay')
+      // owl.trigger('stop.owl.autoplay')
+      clearInterval(myTimer)
     })
+    $('.reset').on('click', function () {
+      c = 60;
+      document.getElementById("time-counter").innerHTML = 60;
+      clearInterval(myTimer)
+    })
+    $(".icon-arrow-right2").on('click', function () {
+      c = 60;
+      document.getElementById("time-counter").innerHTML = 60;
+      clearInterval(myTimer)
+    });
 
+    $(".icon-arrow-left2").on('click', function () {
+      c = 60;
+      document.getElementById("time-counter").innerHTML = 60;
+      clearInterval(myTimer)
+    });
   });
+
+
 </script>
 
 {% endblock %}
