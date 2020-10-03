@@ -1,7 +1,11 @@
 <div class="wrapper">
     <header>
-        <div style="background-color: #adff8a; padding-block: 10px;">
-            <h1 style="text-align: center;">Healthy Timetable generator</h1>
+        <div class="text-center"
+            style="background-color: #adff8a; width:60vw ; border-radius:20px; padding: 10px; margin:auto">
+            <h1 style="text-align: center;"><b>WeCare Timetable Manager</b></h1>
+            <p style="font-size:20px">To set your timetable, or to change you schedule, simply click on the required
+                cell, and enter the
+                corresponding value in the dialog that pops up.</p>
         </div>
     </header>
     <br>
@@ -16,7 +20,7 @@
         }
     </style>
 
-    <div class="grid row col">
+    <div id="timetable" class="grid row col" style="width:fit-content; margin:auto">
         <table id="my-task-table" yolo>
             <thead>
                 <th scope="col">Time</th>
@@ -287,5 +291,8 @@
     btn.addEventListener('click', sortActivities)
     clear.addEventListener('click', clearTimetable)
 
-
 </script>
+
+<style>
+
+</style>

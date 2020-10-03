@@ -228,7 +228,7 @@
       let song = Object.keys(songobject)[0]
 
 
-      var data = JSON.stringify({ "name": song });
+      var data = JSON.stringify({ "name": song + " song by " + songobject[song]['artist'] });
       var xhr = new XMLHttpRequest();
       xhr.addEventListener("readystatechange", function () {
         if (this.readyState === 4) {
