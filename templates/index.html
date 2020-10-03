@@ -7,11 +7,15 @@
 
 <style>
     section {
-        padding: 48px 32px 64px 32px;
+        padding: 64px 32px 64px 32px;
     }
 
     .section-title {
         padding: 4px;
+        margin-bottom: 32px;
+        font-weight: 500;
+        font-size: 54px;
+        color: #01415c;
     }
 
     .intro-imgs {
@@ -25,10 +29,11 @@
         text-align: center;
         font-weight: 800;
         font-size: 64px;
+        margin: 32px 0;
     }
 
     .pro-intro-list {
-        padding: 24px 0;
+        padding: 48px 0;
     }
 
     .our-logo {
@@ -51,7 +56,22 @@
         width: 80%;
         margin: 12px auto;
     }
+
+    #left-img {
+        margin: auto;
+        width: 60%;
+        border-radius: 50%;
+    }
+
+    #left-heading {
+        padding-top: 48px;
+        color: #37750d !important;
+        font-style: italic;
+        font-weight: 600px;
+    }
 </style>
+
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 {% endblock %}
 
@@ -62,33 +82,33 @@
     <section id="intro">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-5">
+                <div class="col-lg-5" style="text-align: center;" data-aos="zoom-in-up">
 
-                    <img src="/static/img/front_image.jpg"
-                        style="padding:25px 40px;height:320px; margin-left:100px;border-radius:100%"><br>
-                    <h3 style="margin-left:90px;">Your Health is our first priority!</h3>
+                    <img id="left-img" src="/static/img/front_image.jpg"><br>
+                    <h3 id="left-heading" style="color: #404040;">Your Health is our first priority!</h3>
 
                 </div>
                 <div class="col-lg-7 pro-intro">
-                    <div class="pro-intro-head">
+                    <div class="pro-intro-head" data-aos="zoom-in-left">
                         <img class="our-logo" src="/static/img/new-we-care.svg" alt="Card image cap">
                         We Care
                     </div>
                     <div class="row pro-intro-list">
                         <div class="col">
-                            <img class="intro-imgs" src="/static/img/sugg.jpg" alt="Card image cap" style="height:90%;">
+                            <img class="intro-imgs" data-aos="zoom-in" src="/static/img/sugg2.png" alt="Card image cap"
+                                style="height:90%;">
                         </div>
                         <div class="col">
-                            <img class="intro-imgs" src="/static/img/time-management-removebg-preview.png"
-                                alt="Card image cap">
+                            <img class="intro-imgs" data-aos="zoom-in"
+                                src="/static/img/time-management-removebg-preview.png" alt="Card image cap">
                         </div>
                         <div class="col">
-                            <img class="intro-imgs" src="/static/img/chat-svgrepo-com.svg" alt="Card image cap"
-                                style="margin-top:10px;height:100px;">
+                            <img class="intro-imgs" data-aos="zoom-in" src="/static/img/chat-svgrepo-com.svg"
+                                alt="Card image cap" style="margin-top:10px;height:100px;">
                         </div>
                         <div class="col">
-                            <img class="intro-imgs" src="/static/img/yoga-svgrepo-com.svg" alt="Card image cap"
-                                style="margin-top:10px;height:100px;">
+                            <img class="intro-imgs" data-aos="zoom-in" src="/static/img/yoga-svgrepo-com.svg"
+                                alt="Card image cap" style="margin-top:10px;height:100px;">
                         </div>
                     </div>
                 </div>
@@ -97,14 +117,14 @@
     </section>
 
     <section id="pros">
-        <h1 class="text-center section-title">Our Products</h1>
+        <h1 class="text-center section-title" data-aos="fade-up">Our Products</h1>
 
         <div class="container-fluid">
             <div class="row">
 
                 <div class="col-sm-6 col-lg-3">
-                    <div class="card">
-                        <img class="card-img-top" src="/static/img/sugg.jpg" alt="Card image cap"
+                    <div class="card" data-aos="fade-in">
+                        <img class="card-img-top" src="/static/img/sugg2.png" alt="Card image cap"
                             style=" margin-top: 30px;width:250px;height:250px;">
                         <div class="card-body">
                             <h5 class="card-title">Content Suggestions</h5>
@@ -118,7 +138,7 @@
                 </div>
 
                 <div class="col-sm-6 col-lg-3">
-                    <div class="card">
+                    <div class="card" data-aos="fade-in">
                         <img class="card-img-top" src="/static/img/time-management-removebg-preview.png"
                             alt="Card image cap" style=" margin-top: 30px;width:250px;height:250px;">
                         <div class="card-body">
@@ -133,7 +153,7 @@
                 </div>
 
                 <div class="col-sm-6 col-lg-3">
-                    <div class="card">
+                    <div class="card" data-aos="fade-in">
                         <img class="card-img-top" src="/static/img/ne1.png" alt="Card image cap"
                             style=" margin-top: 30px;width:250px;height:250px;">
                         <div class=" card-body">
@@ -150,7 +170,7 @@
                 </div>
 
                 <div class="col-sm-6 col-lg-3">
-                    <div class="card">
+                    <div class="card" data-aos="fade-in">
                         <img class="card-img-top" src="/static/img/yoga-svgrepo-com.svg" alt="Card image cap"
                             style=" margin-top: 30px;width:250px;height:250px;">
                         <div class="card-body">
@@ -178,7 +198,7 @@
                 margin-right: 60px;
             }
         </style>
-        <div class="jumbotron" style="background: white; margin-top: 64px;">
+        <div class="jumbotron" style="background: white; margin-top: 64px;" data-aos="fade-in">
             <h2 id="quote" class="text-center" style="margin-top: 32px;">"Be Positive!"</h2>
             <h3 id="writer"></h3>
         </div>
@@ -212,7 +232,7 @@
 <script>
     window.addEventListener('scroll', function () {
         console.log(window.pageYOffset)
-        if (window.pageYOffset > 300) {
+        if (window.pageYOffset > 10) {
             document.getElementById('top-nav').classList.add('sticky');
             document.getElementById('top-nav').classList.add('myshadown');
         } else {
@@ -220,6 +240,11 @@
             document.getElementById('top-nav').classList.remove('myshadown');
         }
     });
+</script>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
 </script>
 
 {% endblock %}
