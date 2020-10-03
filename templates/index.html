@@ -77,7 +77,7 @@
                     <div class="row pro-intro-list">
                         <div class="col">
                             <img class="intro-imgs" src="/static/img/sugg.jpg" alt="Card image cap"
-                                style="height:70px;">
+                                style="height:100px;">
                         </div>
                         <div class="col">
                             <img class="intro-imgs" src="/static/img/time-management-removebg-preview.png"
@@ -85,11 +85,11 @@
                         </div>
                         <div class="col">
                             <img class="intro-imgs" src="/static/img/chat-svgrepo-com.svg" alt="Card image cap"
-                                style="margin-top:10px;height:60px;">
+                                style="margin-top:10px;height:100px;">
                         </div>
                         <div class="col">
                             <img class="intro-imgs" src="/static/img/yoga-svgrepo-com.svg" alt="Card image cap"
-                                style="margin-top:10px;height:60px;">
+                                style="margin-top:10px;height:100px;">
                         </div>
                     </div>
                 </div>
@@ -186,7 +186,8 @@
     </section>
     <script src="/static/messages.js"></script>
     <script>
-        let messageNumber = Math.floor(Math.random() * 20)
+        console.log(messagesData)
+        let messageNumber = Math.floor(Math.random() * 50)
         let message = messagesData[messageNumber]['message']
         let writer = messagesData[messageNumber]['writer']
         document.getElementById("quote").innerHTML = "“" + message + "”"
